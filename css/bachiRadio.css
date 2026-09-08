@@ -375,7 +375,7 @@
     position:relative;
     overflow:hidden;
     border-radius:18px;
-    background:linear-gradient(100deg,#611232 0%, #7a1a3c 55%, #3a0f22 100%);
+    background:#4a0f26;
     color:#fff;
     display:flex;align-items:center;gap:28px;
     padding:34px 42px;
@@ -385,7 +385,7 @@
     position:absolute;right:0;top:0;bottom:0;
     width:46%;
     object-fit:cover;
-    opacity:.45;
+    opacity:1;
     -webkit-mask:linear-gradient(90deg,transparent,#000 55%);
             mask:linear-gradient(90deg,transparent,#000 55%);
 }
@@ -399,12 +399,12 @@
 }
 .br-cta__icon svg{ width:30px;height:30px;stroke:#fff;fill:none; }
 .br-cta__body{ position:relative; }
-.br-cta__title{ font-size:20px;font-weight:800;margin:0 0 6px; }
+.br-cta__title{ font-size:20px;font-weight:800;margin:0 0 9px; color:#fffef9;}
 .br-cta__text{ font-size:14px;line-height:1.5;color:rgba(255,255,255,.82);margin:0 0 18px;max-width:520px; }
 .br-cta__btn{
     display:inline-block;
     background: var(--br-gold);
-    color:#3a2c00;
+    color:#fffef9;
     font-weight:700;font-size:13px;
     border:0;border-radius:8px;
     padding:11px 22px;
@@ -412,6 +412,157 @@
     cursor:pointer;
 }
 .br-cta__btn:hover{ background:#b8974a;color:#3a2c00;text-decoration:none; }
+
+/* =========================================================
+   PÁGINA INTERNA — encabezado, buscador y paginación
+   (compartido por Episodios / Coberturas / Detalle)
+   ========================================================= */
+.br-page .br-title{
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 0 0 14px;
+    color: var(--br-ink);
+    text-align: left;
+}
+.br-back{
+    display:inline-flex;align-items:center;gap:8px;
+    color: var(--br-wine);font-weight:700;font-size:15px;
+    text-decoration:none;background:none;border:0;padding:0;
+    cursor:pointer;margin-bottom:26px;
+}
+.br-back:hover{ color: var(--br-wine-strong);text-decoration:none; }
+.br-back svg{ width:16px;height:16px; }
+
+.br-lead{ font-size:17px;color:var(--br-muted);margin:0 0 30px;max-width:640px; }
+
+.br-search{
+    position:relative;display:flex;align-items:center;gap:14px;width:100%;
+    background:#fff;border:1px solid var(--br-line);border-radius:999px;
+    padding:10px 22px;box-shadow:0 2px 10px rgba(0,0,0,.04);margin-bottom:46px;
+}
+.br-search__icon{
+    flex:0 0 auto;width:34px;height:34px;border-radius:50%;
+    background:#f2f2f2;display:grid;place-items:center;color:#8a8a8a;
+}
+.br-search__icon svg{ width:17px;height:17px; }
+.br-search input{
+    flex:1 1 auto;border:0;outline:0;background:transparent;
+    font-size:15px;color:#333;padding:8px 0;
+}
+.br-search input::placeholder{ color:#9a9a9a; }
+
+.br-pager{ display:flex;justify-content:center;align-items:center;gap:8px;margin-top:48px; }
+.br-pager button{
+    min-width:38px;height:38px;padding:0 10px;
+    border:1px solid var(--br-line);background:#fff;color:#444;
+    border-radius:8px;font-size:14px;cursor:pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.br-pager button:hover{ border-color: var(--br-wine);color: var(--br-wine); }
+.br-pager button.is-active{ background: var(--br-wine);border-color: var(--br-wine);color:#fff; }
+.br-pager button:disabled{ opacity:.4;cursor:default; }
+
+/* ---- grid de coberturas a ancho completo (3 col) ---- */
+.br-cov--list{ margin-bottom:10px; }
+
+/* =========================================================
+   DETALLE DE COBERTURA — selector de temporada
+   ========================================================= */
+.br-seasons{ display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 30px; }
+.br-season-tab{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    border-radius:999px;padding:11px 22px;cursor:pointer;
+    border:1px solid var(--br-line);background:#fff;color:var(--br-ink);
+    text-decoration:none;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.br-season-tab:hover{ border-color: var(--br-wine);color: var(--br-wine);text-decoration:none; }
+.br-season-tab .br-season-tab__ico{
+    width:24px;height:24px;border-radius:50%;
+    background: rgba(255,255,255,.18);
+    display:grid;place-items:center;
+}
+.br-season-tab .br-season-tab__ico svg{ width:12px;height:12px;stroke:currentColor;fill:none; }
+.br-season-tab.is-active{ background: var(--br-wine);border-color: var(--br-wine);color:#fff; }
+.br-season-tab.is-active:hover{ background: var(--br-wine-strong);color:#fff; }
+
+/* ---- tarjeta de temporada ---- */
+.br-seasoncard{
+    display:flex;gap:26px;align-items:stretch;
+    background: var(--br-green-dark);
+    color:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    padding:20px;
+    margin-bottom:40px;
+}
+.br-seasoncard__media{
+    flex:0 0 300px;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+}
+.br-seasoncard__media img{ width:100%;height:100%;min-height:180px;object-fit:cover;display:block; }
+.br-seasoncard__body{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:8px 16px 8px 0;
+}
+.br-seasoncard__kicker{
+    font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color: rgba(255,255,255,.7);
+    margin:0 0 8px;
+}
+.br-seasoncard__title{ font-size:20px;font-weight:800;margin:0 0 10px;color:#fff; }
+.br-seasoncard__text{ font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85);margin:0 0 14px;max-width:520px; }
+.br-seasoncard__count{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;color:rgba(255,255,255,.9);
+}
+.br-seasoncard__count svg{ width:15px;height:15px;stroke:currentColor;fill:none; }
+
+/* =========================================================
+   LISTA DE EPISODIOS (detalle)
+   ========================================================= */
+.br-eptitle{
+    font-size:22px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;
+    color:var(--br-ink);margin:0 0 18px;
+}
+.br-eplist{ border-top:1px solid var(--br-line); }
+.br-ep{
+    display:flex;align-items:center;gap:22px;
+    padding:20px 4px;
+    border-bottom:1px solid var(--br-line);
+}
+.br-ep__num{
+    flex:0 0 auto;
+    font-size:30px;font-weight:800;
+    color:var(--br-ink);
+    min-width:48px;
+}
+.br-ep__main{ flex:1 1 auto;min-width:0; }
+.br-ep__title{ font-size:16px;font-weight:800;margin:0 0 4px;color:var(--br-ink); }
+.br-ep__desc{ font-size:13.5px;color:var(--br-muted);margin:0;line-height:1.45; }
+.br-ep__meta{
+    flex:0 0 auto;
+    display:flex;align-items:center;gap:18px;
+    font-size:12.5px;color:#6b6b6b;
+}
+.br-ep__meta span{ display:inline-flex;align-items:center;gap:7px;white-space:nowrap; }
+.br-ep__meta svg{ width:14px;height:14px;stroke:#8a8a8a;fill:none; }
+.br-ep__btn{
+    flex:0 0 auto;
+    display:inline-flex;align-items:center;gap:9px;
+    background: var(--br-wine);color:#fff;
+    font-size:12px;font-weight:700;
+    border:0;border-radius:999px;
+    padding:10px 18px;
+    text-decoration:none;cursor:pointer;
+    transition: background .15s ease;
+}
+.br-ep__btn:hover{ background: var(--br-wine-strong);color:#fff;text-decoration:none; }
+.br-ep__btn svg{ width:11px;height:11px;fill:#fff; }
 
 /* =========================================================
    RESPONSIVE
@@ -424,6 +575,11 @@
     .br-grid{ grid-template-columns:repeat(2,1fr); }
     .br-cov{ grid-template-columns:repeat(2,1fr); }
     .br-voces__track{ flex-wrap:wrap; }
+    .br-seasoncard{ flex-direction:column;gap:16px; }
+    .br-seasoncard__media{ flex-basis:auto; }
+    .br-ep{ flex-wrap:wrap; }
+    .br-ep__meta{ order:3;width:100%;padding-left:70px; }
+    .br-ep__btn{ order:2; }
 }
 @media (max-width: 639px){
     .br-page{ padding-top:70px; }
@@ -435,6 +591,9 @@
     .br-cta__media{ display:none; }
     .br-section__title{ font-size:21px; }
     .br-hero__grid{ min-height:220px; }
+    .br-ep{ gap:14px; }
+    .br-ep__num{ font-size:24px;min-width:38px; }
+    .br-ep__meta{ padding-left:0;gap:14px;flex-wrap:wrap; }
 }
 .br-hero{
     width: 100vw;
