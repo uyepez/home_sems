@@ -1043,3 +1043,80 @@ function scrollCarruselGaleria16dda(direction) {
       closeModalGaleria16dda();
     }
   }
+
+  /* =========================================================
+   Bachiradio — script.js
+   Carrusel "Voces del Bachillerato Nacional"
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('.br-voces').forEach(function (voces) {
+        const track = voces.querySelector('.br-voces__track');
+        const prevBtn = voces.querySelector('.br-voces__nav--prev');
+        const nextBtn = voces.querySelector('.br-voces__nav--next');
+
+        if (!track) return;
+
+        // Calcula cuánto se debe mover el carrusel (ancho de un item + gap)
+        function step() {
+            const item = track.querySelector('.br-voces__item');
+            if (!item) return 150;
+            const style = getComputedStyle(track);
+            const gap = parseFloat(style.gap) || 26;
+            return item.offsetWidth + gap;
+        }
+
+        // Botones de flecha
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function () {
+                track.scrollBy({ left: -step(), behavior: 'smooth' });
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function () {
+                track.scrollBy({ left: step(), behavior: 'smooth' });
+            });
+        }
+
+        // Arrastrar con mouse (desktop)
+        let isDown = false;
+        let startX = 0;
+        let scrollStart = 0;
+
+        track.addEventListener('mousedown', function (e) {
+            isDown = true;
+            track.classList.add('is-dragging');
+            startX = e.pageX;
+            scrollStart = track.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', function () {
+            isDown = false;
+            track.classList.remove('is-dragging');
+        });
+
+        window.addEventListener('mousemove', function (e) {
+            if (!isDown) return;
+            e.preventDefault();
+            track.scrollLeft = scrollStart - (e.pageX - startX);
+        });
+
+        // Evita que un arrastre se interprete como clic en el enlace
+        let dragDistance = 0;
+        track.addEventListener('mousedown', function (e) {
+            dragDistance = 0;
+        });
+        window.addEventListener('mousemove', function (e) {
+            if (isDown) dragDistance += Math.abs(e.movementX || 0);
+        });
+        track.querySelectorAll('.br-voces__item').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                if (dragDistance > 5) {
+                    e.preventDefault();
+                }
+            });
+        });
+    });
+
+});
