@@ -636,7 +636,7 @@
 
     position:fixed;
     inset:0;
-    z-index:1000;
+    z-index:9999;
     display:none;
 }
 .br-modal.is-open{ display:block; }
