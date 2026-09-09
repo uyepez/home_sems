@@ -84,6 +84,9 @@
                     </a>
                 </div>
             </div>
+
+
+
         </div>
 
         <button type="button" class="br-navbtn br-hero__arrow br-hero__arrow--prev" aria-label="Anterior">
@@ -149,7 +152,7 @@
                                 <div class="br-card__media">
                                     <img src="assets/comunidad-estudiantil/01.png" alt="Episodio: Historias que nacen en el aula" />
                                     <span class="br-tag">Pensamiento Matemático</span>
-                                    <button type="button" class="br-play" aria-label="Reproducir episodio">
+                                    <button type="button" class="br-play" aria-label="Reproducir episodio" data-tainacan-id="164492">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                                     </button>
                                 </div>
@@ -167,7 +170,7 @@
                                 <div class="br-card__media">
                                     <img src="assets/comunidad-estudiantil/02.png" alt="Episodio: Historias que nacen en el aula" />
                                     <span class="br-tag">Pensamiento Matemático</span>
-                                    <button type="button" class="br-play" aria-label="Reproducir episodio">
+                                    <button type="button" class="br-play" aria-label="Reproducir episodio" data-tainacan-id="164492">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                                     </button>
                                 </div>
@@ -185,7 +188,7 @@
                                 <div class="br-card__media">
                                     <img src="assets/comunidad-estudiantil/03.png" alt="Episodio: Historias que nacen en el aula" />
                                     <span class="br-tag">Pensamiento Matemático</span>
-                                    <button type="button" class="br-play" aria-label="Reproducir episodio">
+                                    <button type="button" class="br-play" aria-label="Reproducir episodio" data-tainacan-id="164492">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                                     </button>
                                 </div>
@@ -343,9 +346,49 @@
 
             </div>
         </main>
+
+        <!-- ============ MODAL REPRODUCTOR DE EPISODIO (Tainacan) ============ -->
+        <div class="br-modal" id="brPlayerModal" aria-hidden="true">
+            <div class="br-modal__backdrop" data-br-modal-close></div>
+            <div class="br-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="brModalTitle">
+                <button type="button" class="br-modal__close" data-br-modal-close aria-label="Cerrar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+
+                <div class="br-modal__state br-modal__state--loading" data-br-state="loading">
+                    <span class="br-modal__spinner" aria-hidden="true"></span>
+                    <p>Cargando episodio…</p>
+                </div>
+
+                <div class="br-modal__state br-modal__state--error" data-br-state="error">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <p>No se pudo cargar el episodio. Inténtalo de nuevo más tarde.</p>
+                </div>
+
+                <div class="br-modal__content" data-br-state="content">
+                    <div class="br-modal__head">
+                        <span class="br-modal__cover">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        </span>
+                        <div class="br-modal__headtext">
+                            <span class="br-modal__tag" id="brModalTag"></span>
+                            <h2 class="br-modal__title" id="brModalTitle"></h2>
+                        </div>
+                    </div>
+
+                    <audio class="br-modal__audio" id="brModalAudio" controls preload="none"></audio>
+
+                    <p class="br-modal__desc" id="brModalDesc"></p>
+
+                    <dl class="br-modal__meta" id="brModalMeta"></dl>
+                </div>
+            </div>
+        </div>
+
         <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
         <script src="https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="/js/script.js"></script>
+        <script src="./js/bachiRadio.js"></script>
     </body>
 </html>
