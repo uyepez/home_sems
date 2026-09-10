@@ -451,11 +451,11 @@
           </div>
 
           <div style="display: flex; flex-direction: column; align-items: center; margin: 20px 0">
-            <button type="button" id="btnDescargarTodoZIP" class="btn boton2" style="display: inline-block"
-              onclick="descargarTodoInfografiasZIP()">
+            <a id="btnDescargarTodoZIP" class="btn boton2" style="display: inline-block"
+              href="assets/quienes-somos/Infografias%20por%20estado.zip" download="SEMS_en_cifras_infografias.zip">
               <span class="btn-texto">Descargar todo</span>
               <img src="assets/iconos-quienes-somos/descarga_rojo.png" alt="descarga_r" style="width: 30px" />
-            </button>
+            </a>
         
           </div>
         </div>
@@ -620,77 +620,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/script.js"></script>
 
-    <!-- Descargar todas las infografías como ZIP -->
-    <script src="/js/jszip.min.js"></script>
-    <script>
-      async function descargarTodoInfografiasZIP() {
-        var btn = document.getElementById('btnDescargarTodoZIP');
-        var info = document.getElementById('btnDescargarTodoZIP-info');
-        var texto = btn ? btn.querySelector('.btn-texto') : null;
-        if (!btn || typeof JSZip === 'undefined') {
-          // Respaldo: PDF combinado si algo falla
-          window.open('assets/quienes-somos/Infografias por Entidad Federativa.pdf', '_blank');
-          return;
-        }
-
-        // Reúne los PDF a partir de las tarjetas del carrusel
-        var enlaces = Array.prototype.slice.call(
-          document.querySelectorAll('#carrusel-horizontal-SEMS .card-cifras a[href$=".pdf"]')
-        );
-        if (!enlaces.length) return;
-
-        var textoOriginal = texto ? texto.textContent : 'Descargar todo';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-        btn.style.cursor = 'progress';
-
-        var zip = new JSZip();
-        var carpeta = zip.folder('SEMS_en_cifras_infografias');
-        var fallidos = [];
-        var total = enlaces.length;
-
-        for (var i = 0; i < enlaces.length; i++) {
-          var url = enlaces[i].getAttribute('href');
-          var nombre = decodeURIComponent(url.split('/').pop());
-          if (info) info.textContent = 'Preparando ' + (i + 1) + ' de ' + total + '…';
-          try {
-            var resp = await fetch(encodeURI(url));
-            if (!resp.ok) throw new Error(resp.status);
-            carpeta.file(nombre, await resp.blob());
-          } catch (e) {
-            fallidos.push(nombre);
-          }
-        }
-
-        if (info) info.textContent = 'Comprimiendo archivos…';
-        try {
-          var contenido = await zip.generateAsync(
-            { type: 'blob', compression: 'STORE' },
-            function (meta) {
-              if (info) info.textContent = 'Comprimiendo… ' + Math.round(meta.percent) + '%';
-            }
-          );
-          var a = document.createElement('a');
-          a.href = URL.createObjectURL(contenido);
-          a.download = 'SEMS_en_cifras_infografias.zip';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 30000);
-          if (info) {
-            info.textContent = fallidos.length
-              ? 'ZIP generado. No se pudieron incluir: ' + fallidos.join(', ')
-              : 'ZIP generado correctamente.';
-          }
-        } catch (e) {
-          if (info) info.textContent = 'No se pudo generar el ZIP. Intenta de nuevo.';
-        } finally {
-          btn.disabled = false;
-          btn.style.opacity = '';
-          btn.style.cursor = '';
-          if (texto) texto.textContent = textoOriginal;
-        }
-      }
-    </script>
   </body>
 </html>
