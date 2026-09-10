@@ -341,6 +341,39 @@ function scrollCarruselBachilleratoTecnologico(direction) {
     });
   }
 
+  // Movimiento automatico de los carruseles del Bachillerato Nacional
+  function iniciarCarruselAutomaticoBachilleratoNacional(carruselId, intervalo) {
+    const carrusel = document.getElementById(carruselId);
+    if (!carrusel) return;
+
+    const avanzar = () => {
+      const item = carrusel.querySelector('.imgCarrusel-bachillerato');
+      if (!item) return;
+      const cardWidth = item.offsetWidth + 20;
+      const maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth - 5;
+
+      if (carrusel.scrollLeft >= maxScrollLeft) {
+        carrusel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carrusel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    };
+
+    let timer = setInterval(avanzar, intervalo);
+
+    // Pausar al pasar el mouse y reanudar al salir
+    carrusel.addEventListener('mouseenter', () => clearInterval(timer));
+    carrusel.addEventListener('mouseleave', () => {
+      clearInterval(timer);
+      timer = setInterval(avanzar, intervalo);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    iniciarCarruselAutomaticoBachilleratoNacional('carrusel-horizontal-bachillerato-gral', 3000);
+    iniciarCarruselAutomaticoBachilleratoNacional('carrusel-horizontal-bachillerato-tecnologico', 3500);
+  });
+
   function scrollCarruselBachiller(direction) {
   const carrusel = document.getElementById('carrusel-horizontal-bachiller');
   if (!carrusel) return;
