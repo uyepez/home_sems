@@ -108,7 +108,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
+      <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top sinbanem-nav">
         <div class="container">
           <div class="navbar-header">
             <button
@@ -166,48 +166,66 @@
       <br>
 
       <section class="container campanas">
-        <div class="row">
-          <div class="col-xs-12 col-md-7">
-            <div class="media-sesion" id="mediaSesion"></div>
+        <div class="row row-cards-top row-cards-equal">
+          <div class="col-xs-12 col-md-7 card-order-video">
+            <div class="card-top-sesion card-top-video">
+              <div class="media-sesion" id="mediaSesion"></div>
+            </div>
           </div>
 
-          <div class="col-xs-12 pt-20 col-md-5">
-            <h2 id="titulo">Sesión</h2>
-            <hr class="hr-dorado">
+          <div class="col-xs-12 col-md-5 card-order-desc">
+            <div class="card-top-sesion card-top-descripcion">
+              <h2 id="titulo">Sesión</h2>
+              <hr class="hr-dorado">
 
-            <p id="descripcion"></p>
+              <p id="descripcion"></p>
 
-            <p class="sesion-meta">
-              <span class="glyphicon glyphicon-calendar"></span>
-              <span id="fecha"></span>
-            </p>
+              <p class="sesion-meta">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span id="fecha"></span>
+              </p>
 
-            <p class="sesion-meta">
-              <span class="glyphicon glyphicon-headphones" id="iconModalidad"></span>
-              <span id="modalidad"></span>
-            </p>
+              <p class="sesion-meta">
+                <span class="glyphicon glyphicon-headphones" id="iconModalidad"></span>
+                <span id="modalidad"></span>
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <h3 class="txt-materiales">Descarga los materiales de esta sesión</h3>
+        <div class="row row-cards-equal">
+          <div class="col-xs-12 col-md-7">
+            <div class="card-top-sesion card-top-materiales">
+              <h3 class="txt-materiales">Descarga los materiales de esta sesión</h3>
 
-            <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <a id="btnOrdenDia" href="#" target="_blank" class="btn btn-material btn-block">Orden del día <i class="glyphicon glyphicon-download-alt"></i></a>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <a id="btnOrdenDia" href="#" target="_blank" class="btn btn-material btn-block">Orden del día <i class="glyphicon glyphicon-download-alt"></i></a>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <a id="btnPresentacion" href="#" target="_blank" class="btn btn-material btn-block">Presentación <i class="glyphicon glyphicon-download-alt"></i></a>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <a id="btnActa" href="#" target="_blank" class="btn btn-material btn-block">Acta <i class="glyphicon glyphicon-download-alt"></i></a>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <a id="btnMinuta" href="#" target="_blank" class="btn btn-material btn-block">Minuta <i class="glyphicon glyphicon-download-alt"></i></a>
+                </div>
               </div>
-              <div class="col-xs-12 col-sm-6">
-                <a id="btnPresentacion" href="#" target="_blank" class="btn btn-material btn-block">Presentación <i class="glyphicon glyphicon-download-alt"></i></a>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <a id="btnActa" href="#" target="_blank" class="btn btn-material btn-block">Acta <i class="glyphicon glyphicon-download-alt"></i></a>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <a id="btnMinuta" href="#" target="_blank" class="btn btn-material btn-block">Minuta <i class="glyphicon glyphicon-download-alt"></i></a>
+
+              <div class="pt-20">
+                <button class="btn btn-compartir-cm" id="btnCompartir" >
+                  Compartir <i class="glyphicon glyphicon-share" style="margin-left:5px;"></i>
+                </button>
               </div>
             </div>
+          </div>
 
-            <div class="pt-20">
-              <button class="btn btn-compartir-cm" id="btnCompartir" >
-                Compartir <i class="glyphicon glyphicon-share" style="margin-left:5px;"></i>
-              </button>
+          <div class="col-xs-12 col-md-5">
+            <div class="card-top-sesion card-top-enlaces">
+              <h3 class="txt-materiales">Enlaces de interés</h3>
+              <hr class="hr-dorado">
+              <div id="enlacesInteresContainer"></div>
             </div>
           </div>
         </div>

@@ -107,7 +107,7 @@
 .doc-card {
     min-width: 560px;
     max-width: 560px;
-    height: 123px;
+    min-height: 123px;
 
     background: #1f6b58;
     color: white;
@@ -164,7 +164,7 @@
 @media (max-width: 768px) {
 
     .slider-btn {
-        display: none;
+        display: none !important;
     }
 
     .documentos-recientes {
@@ -1609,6 +1609,13 @@
   margin: 0 0 22px;
 }
 
+.hr-dorado-full {
+  border: 0;
+  border-top: 3px solid #caa65b;
+  width: 100%;
+  margin: 0 0 22px;
+}
+
 #descripcion {
   color: #6a6a6a;
   font-size: 15px;
@@ -2204,4 +2211,245 @@
 
 .imagen-gris {
     filter: grayscale(100%);
+}
+
+/* Ajuste de menú superior exclusivo de las páginas de SINBANEM
+   que estamos trabajando (aplica solo dentro de .sinbanem-nav) */
+.sinbanem-nav .icon-home {
+  position: relative;
+  top: -10px;
+}
+
+/* Centra las tarjetas de "Explora SINBANEM" cuando la última fila
+   no se completa (p. ej. un número de tarjetas impar) */
+.row-explora-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Las .card-info tienen ancho fijo (236px): al ser más angostas que su
+   columna quedaban pegadas a la izquierda; las centramos en esta sección */
+#exploraSinbanem .card-info {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================================
+   TARJETAS SUPERIORES DE DETALLE (video/imagen, descripción,
+   materiales/integrantes, enlaces/objetivo)
+=================================================== */
+.card-top-sesion {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 26px 28px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Filas cuyas tarjetas deben compartir la misma altura, para que las
+   sombras no se vean escalonadas cuando el contenido difiere */
+.row-cards-equal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.row-cards-equal > [class*="col-"] {
+  display: flex;
+}
+
+.card-top-video {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top-video .media-sesion {
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.card-top-video .media-sesion img,
+.card-top-video .media-sesion iframe,
+.card-top-video .media-sesion video {
+  height: 100%;
+  min-height: 0;
+}
+
+.card-top-video img.detalle-comision-img {
+  flex: 1;
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+  min-height: 260px;
+}
+
+@media (max-width: 767px) {
+  .card-order-desc {
+    order: 1;
+  }
+
+  .card-order-video {
+    order: 2;
+  }
+
+  .card-top-sesion {
+    padding: 20px;
+  }
+
+  .card-top-video img.detalle-comision-img,
+  .card-top-video .media-sesion,
+  .card-top-video .media-sesion img,
+  .card-top-video .media-sesion iframe {
+    min-height: 220px;
+  }
+}
+
+/* ===================================================
+   PORTADA SINBANEM (sinbanem_modificado.html)
+=================================================== */
+
+/* Quienes somos: texto centrado y con ancho de lectura cómodo */
+.quienes-somos-texto {
+  max-width: 900px;
+  margin: 0 auto 10px;
+}
+
+/* Tarjeta "Herramientas de trabajo" */
+.herramientas-card {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.herramientas-top {
+  padding: 35px 30px;
+  text-align: center;
+}
+
+.herramientas-top h2 {
+  margin-top: 0;
+}
+
+.herramientas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  align-items: stretch;
+  gap: 20px;
+  margin: 25px 0 10px;
+}
+
+.herramienta-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 240px;
+  height: 151px;
+  min-height: 72px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.herramienta-item:hover,
+.herramienta-item:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.herramienta-item img {
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.herramienta-item span {
+  font-weight: 700;
+  color: #333;
+  line-height: 1.25;
+  font-size: 16px;
+}
+
+/* Tarjeta "CEPPEMS" (independiente de .herramientas-card) */
+.ceppems-banner {
+  background: #F5E0DF;
+  border-radius: 28px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 35px 40px;
+}
+
+.ceppems-media {
+  flex: 0 0 auto;
+}
+
+.ceppems-media img {
+  width: 200px;
+  display: block;
+}
+
+.ceppems-info h3 {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 26px;
+  margin: 0 0 10px;
+}
+
+.ceppems-info p {
+  color: #555;
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
+.ceppems-btn {
+  display: inline-block;
+  width: auto;
+  padding: 10px 26px;
+}
+
+@media (max-width: 767px) {
+  .herramientas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ceppems-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 24px;
+  }
+
+  .ceppems-info p {
+    max-width: none;
+  }
+}
+
+/* Carrusel de "Documentos recientes" (Slick)
+   OJO: no tocar "display" de .slick-track/.slick-slide — Slick los
+   posiciona con transform/float internamente y forzar flex/grid ahí
+   rompe el cálculo de anchos con variableWidth (deja huecos enormes). */
+.slider-documentos .slick-slide {
+  margin-right: 12px;
+}
+
+
+.icon-search{
+  padding-left: 5px;
+  padding-block-start: 5px;
 }

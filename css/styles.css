@@ -3431,6 +3431,7 @@ h3{
   .sub-navbar .navbar-collapse {
     display: flex !important;
     flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
   }
   .sub-navbar .navbar-nav {
     display: flex;

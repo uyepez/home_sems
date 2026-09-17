@@ -229,7 +229,7 @@
 
 
 
-      <div  style="background-color: var(--bg-secondary)">
+      <div  style="background-color: #fdf1f1">
         <div class="container">
         <!-- Quienes somos -->
           <div class="text-center">
@@ -238,7 +238,7 @@
 
               <div class="col-xs-12 col-sm-12 d-flex-col ">
                 <div></div>
-                <p style="text-align: justify">
+                <p class="quienes-somos-texto">
                   El Sistema Nacional de Bachillerato de la Nueva Escuela Mexicana (SINBANEM) es un conjunto orgánico y articulado de
                   políticas públicas y acciones que contribuyen al cumplimiento de los propósitos y fines de la Educación Media Superior,
                   mediante la coordinación y colaboración de las autoridades e instituciones educativas de los tres órdenes de gobierno,
@@ -249,7 +249,7 @@
                 <div class="btn-description">
                   <a href="./quienesSomos-SINBANEM.html" target="_self">
                     <button type="button" class="btn boton">
-                      Conocer más
+                      Conoce más
                       <span class="glyphicon glyphicon-chevron-right"></span>
                     </button>
                   </a>
@@ -472,44 +472,46 @@
 
     <div style="background-color: var(--bg-secondary)">
       <div class="container" style="padding-bottom: 100px;">
-          <h2 class="espaciado">Otros servicios</h2>
 
-          <section class="otros-servicios">
-          
-            <a href="SINBANEM-Comisiones.html">
-            <div class="servicio-card">
+        <div class="herramientas-card">
+          <div class="herramientas-top">
+            <h2>Herramientas de trabajo</h2>
+
+            <div class="herramientas-grid">
+              <a href="SINBANEM-Sesiones.html" class="herramienta-item">
+                <img src="assets/SINBANEM/comisiones/sesiones.png" alt="Sesiones">
+                <span>Sesiones</span>
+              </a>
+
+              <a href="https://educacionmediasuperior.sep.gob.mx/FirmaSINBANEM" class="herramienta-item">
+                <img src="assets/SINBANEM/firmaActas.png" alt="Firma de actas">
+                <span>Firma de actas</span>
+              </a>
+
+              <a href="SINBANEM-Comisiones.html" class="herramienta-item">
                 <img src="assets/SINBANEM/comisiones.png" alt="Comisiones">
                 <span>Comisiones</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
-              </div>
+        <div class="ceppems-banner">
+          <div class="ceppems-media">
+            <img src="assets/SINBANEM/pantallaCEPPEMS.jpg" alt="CEPPEMS">
+          </div>
+          <div class="ceppems-info">
+            <h3>CEPPEMS</h3>
+            <p>
+              Consulta y da seguimiento al avance nacional de las Comisiones Estatales para la
+              Planeación y Programación de la Educación Media Superior.
+            </p>
+            <a href="ceppems.html" class="btn boton ceppems-btn">
+              Acceder
+              <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
-          
-            <a href="SINBANEM-Sesiones.html">
-            <div class="servicio-card">
-                <img src="assets/SINBANEM/sesionesIcon.jpg" alt="Sesiones">
-                <span>Sesiones</span>
-
-              </div>
-            </a>
-
-            
-            <a href="https://educacionmediasuperior.sep.gob.mx/FirmaSINBANEM">
-            <div class="servicio-card">
-                <img src="assets/SINBANEM/firmaActas.png" alt="Firma de actas">
-                <span >Firma de actas</span>
-
-              </div>
-            </a>
-          
-          
-            <!--<a href="SINBANEM-DocumentosConsulta.html">
-            <div class="servicio-card">
-                <img src="assets/SINBANEM/documentos.png" alt="Documentos de consulta">
-                <span>Documentos de consulta</span>
-              </div>
-            </a>-->
-          
-          </section>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -521,7 +523,7 @@
 
       <section class="documentos-recientes">
 
-        <button class="slider-btn left" onclick="scrollDocs(-1)">
+        <button class="slider-btn left">
             &#10094;
         </button>
 
@@ -556,7 +558,7 @@
 
         </div>
 
-        <button class="slider-btn right" onclick="scrollDocs(1)">
+        <button class="slider-btn right">
             &#10095;
         </button>
 
@@ -659,14 +661,61 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-    function scrollDocs(direction) {
-        const slider = document.getElementById('sliderDocs');
+    $(document).ready(function () {
+      if ($.isFunction($.fn.slick)) {
+        var $slider = $('#sliderDocs');
+        var $btnPrev = $('.documentos-recientes .slider-btn.left');
+        var $btnNext = $('.documentos-recientes .slider-btn.right');
+        var totalSlides = $slider.find('.doc-card').length;
 
-        slider.scrollBy({
-            left: direction * 350,
-            behavior: 'smooth'
+        // OJO: "infinite" combinado con "variableWidth" tiene un bug
+        // conocido en Slick que deja un hueco enorme entre tarjetas
+        // (las clonas para el loop se miden mal). Usamos "infinite:false"
+        // y controlamos el loop nosotros mismos (ver irSiguiente/irAnterior)
+        // para que el carrusel siga siendo continuo.
+        $slider.slick({
+          infinite: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: true,
+          arrows: false,
+          dots: false,
+          autoplay: false
         });
-    }
+
+        function irSiguiente() {
+          var actual = $slider.slick('slickCurrentSlide');
+          if (actual >= totalSlides - 1) {
+            $slider.slick('slickGoTo', 0);
+          } else {
+            $slider.slick('slickNext');
+          }
+        }
+
+        function irAnterior() {
+          var actual = $slider.slick('slickCurrentSlide');
+          if (actual <= 0) {
+            $slider.slick('slickGoTo', totalSlides - 1);
+          } else {
+            $slider.slick('slickPrev');
+          }
+        }
+
+        $btnNext.on('click', irSiguiente);
+        $btnPrev.on('click', irAnterior);
+
+        var autoplayTimer = setInterval(irSiguiente, 4000);
+
+        $slider.on('mouseenter', function () {
+          clearInterval(autoplayTimer);
+        });
+        $slider.on('mouseleave', function () {
+          autoplayTimer = setInterval(irSiguiente, 4000);
+        });
+      } else {
+        console.error("Slick Slider no ha sido cargado correctamente.");
+      }
+    });
     </script>
 
 
