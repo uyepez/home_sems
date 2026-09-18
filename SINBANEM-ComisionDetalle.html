@@ -108,7 +108,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
+      <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top sinbanem-nav">
         <div class="container">
           <div class="navbar-header">
             <button
@@ -169,18 +169,24 @@
       <div id="detalleComisionContainer"></div>
     </section>
 
+        <br><br>
 
+        <div class="container">
+          <section id="relacionados">
+            <h2 class="pt-20">Relacionados</h2>
+            <hr class="hr-dorado">
+            <div class="row pt-20" id="relacionadosContainer"></div>
+          </section>
+        </div>
 
         <br><br>
 
-       
-
-          <section id="relacionados">
+          <section id="exploraSinbanem">
             <div style="background-color: #fdf5f5; margin-bottom: 50px">
               <div class="container">
-                <h2>Explora SIBANEM</h2>
-                <hr class="hr-dorado">
-                <div class="row" style="margin-top: 20px; margin-bottom: 50px">
+                <h2>Explora SINBANEM</h2>
+                <hr class="hr-dorado-full">
+                <div class="row row-explora-center" style="margin-top: 20px; margin-bottom: 50px">
                   <div class="col-xs-6 col-sm-4">
                     <a href="ecems.html" target="_self"
                       class="a-card">
@@ -201,6 +207,28 @@
                     </a>
                   </div>
                   
+                  <div class=" col-xs-6 col-sm-4">
+                    <a href="https://educacionmediasuperior.sep.gob.mx/FirmaSINBANEM" target="_self" class="a-card">
+                      <div class="card-info">
+                        <div class="img-box">
+                          <img width="120px" src="assets/SINBANEM/firmaActas.png" alt="Bachiller" />
+                        </div>
+                        <p class="card-info-margin">
+                          Firma de actas
+                        </p>
+                        <div class="card-info-span">
+                          <span class="hover-text">Ver más</span>
+                          <svg class="svg-hover" width="15" height="26" viewBox="0 0 15 26" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.9234 14.3108L2.84992 25.2L0.0820312 22.4782L9.77159 12.95L0.0820312 3.42175L2.84992 0.699951L13.9234 11.5891C14.2904 11.95 14.4965 12.4395 14.4965 12.95C14.4965 13.4604 14.2904 13.9499 13.9234 14.3108Z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+
                   <div class=" col-xs-6 col-sm-4">
                     <a href="SINBANEM-Sesiones.html" target="_self" class="a-card">
                       <div class="card-info">
@@ -255,7 +283,8 @@
     "archivo": "assets/SINBANEM/comisiones/comision.png",
     "estatus": "publico",
     "integrantes": "Presidenta del SINBANEM, Subsecretario de Educación Media Superior del Estado de México, Subsecretario de Educación Media Superior del Estado de Jalisco, Directora de Educación Media Superior y Superior en el Estado de Tlaxcala, Subsecretaria de Educación Media Superior y Superior del Estado de Guerrero, Subsecretario de Educación Media Superior y Superior del Estado de Hidalgo, Coordinadora de Educación Media Superior y Formación para el Trabajo en el Estado de Querétaro y Subsecretaria de Educación Ciencia, Tecnología e Innovación de la Ciudad de México. ",
-    "ayo": "2025-2026"
+    "ayo": "2025-2026",
+    "relacionados": "2"
   },
   {
     "id": "2",
@@ -265,7 +294,8 @@
     "archivo": "assets/SINBANEM/comisiones/comision.png",
     "estatus": "publico",
     "integrantes": "Presidente del SINBANEM, Subsecretaria de Educación Media Superior del Estado de Nuevo León, Subsecretario de Educación Media Superior del Estado de México, Subsecretario de Educación Media Superior del Estado de Jalisco y Subsecretario de Educación Media Superior del Estado de Oaxaca",
-    "ayo": "2025-2026"
+    "ayo": "2025-2026",
+    "relacionados": "1"
   }
 ];
 
@@ -283,6 +313,12 @@
                   .replace(/'/g, '&#039;');
               }
 
+              function buscarItemPorId(idBuscado) {
+                return jsonData.find(function (item) {
+                  return String(item.id) === String(idBuscado);
+                });
+              }
+
               function renderNotFound() {
                 $('#detalleComisionContainer').html(`
       <div class="detalle-comision-empty">
@@ -290,49 +326,120 @@
         <p>Verifica el id en la URL o regresa al listado.</p>
       </div>
     `);
+                $('#relacionadosContainer').html('<div class="col-xs-12 text-center">No hay relacionados.</div>');
               }
 
               function renderDetalle(item) {
                 var html = `
-      <div class="detalle-comision-wrap">
-        <div class="detalle-comision-grid">
-          
-          <div class="detalle-comision-media">
-            <img src="${escapeHtml(item.archivo || 'assets/SINBANEM/comisiones/comision.png')}" alt="${escapeHtml(item.titulo)}">
+      <div class="row row-cards-top row-cards-equal">
+        <div class="col-xs-12 col-md-7 card-order-video">
+          <div class="card-top-sesion card-top-video">
+            <img class="detalle-comision-img" src="${escapeHtml(item.archivo || 'assets/SINBANEM/comisiones/comision.png')}" alt="${escapeHtml(item.titulo)}">
           </div>
+        </div>
 
-          <div class="detalle-comision-info">
+        <div class="col-xs-12 col-md-5 card-order-desc">
+          <div class="card-top-sesion card-top-descripcion">
             <h1 class="detalle-comision-titulo">${escapeHtml(item.titulo || 'Sin título')}</h1>
-            <div class="detalle-comision-linea"></div>
+            <hr class="hr-dorado">
 
-            <div class="detalle-comision-meta">
-              <div class="detalle-comision-meta-item">
-                <i class="glyphicon glyphicon-user"></i>
-                <span>${escapeHtml(item.integrantes || 'Integrantes')}</span>
-              </div>
+            <p class="sesion-meta">
+              <span class="glyphicon glyphicon-globe"></span>
+              <span>${escapeHtml(item.estatus || 'Sin estatus')}</span>
+            </p>
 
-              <div class="detalle-comision-meta-item">
-                <i class="glyphicon glyphicon-globe"></i>
-                <span>${escapeHtml(item.estatus || 'Sin estatus')}</span>
-              </div>
+            <p class="sesion-meta">
+              <span class="glyphicon glyphicon-calendar"></span>
+              <span>${escapeHtml(item.ayo || '')}</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
-              <div class="detalle-comision-meta-item">
-                <i class="glyphicon glyphicon-calendar"></i>
-                <span>${escapeHtml(item.ayo || '')}</span>
-              </div>
+      <div class="row row-cards-equal">
+        <div class="col-xs-12 col-md-7">
+          <div class="card-top-sesion card-top-materiales">
+            <h3 class="txt-materiales">Integrantes</h3>
+            <hr class="hr-dorado">
+            <div class="detalle-comision-objetivo">
+              ${escapeHtml(item.integrantes || 'Sin integrantes registrados.')}
             </div>
+          </div>
+        </div>
 
-            <h2 class="detalle-comision-subtitulo">Objetivo de la comisión</h2>
+        <div class="col-xs-12 col-md-5">
+          <div class="card-top-sesion card-top-enlaces">
+            <h3 class="txt-materiales">Objetivo de la comisión</h3>
+            <hr class="hr-dorado">
             <div class="detalle-comision-objetivo">
               ${escapeHtml(item.objetivo || item.descripcion_corta || 'Sin información disponible.')}
             </div>
           </div>
-
         </div>
       </div>
     `;
 
                 $('#detalleComisionContainer').html(html);
+              }
+
+              function obtenerIdsRelacionados(relacionadosStr) {
+                if (!relacionadosStr) return [];
+
+                return String(relacionadosStr)
+                  .split(',')
+                  .map(function (id) { return id.trim(); })
+                  .filter(function (id) { return id !== ''; });
+              }
+
+              function renderRelacionados(itemActual) {
+                var container = $('#relacionadosContainer');
+                container.empty();
+
+                if (!itemActual || !itemActual.relacionados) {
+                  container.html('<div class="col-xs-12 text-center">No hay relacionados.</div>');
+                  return;
+                }
+
+                var idsRelacionados = obtenerIdsRelacionados(itemActual.relacionados);
+
+                var relacionados = idsRelacionados
+                  .map(function (idRel) {
+                    return buscarItemPorId(idRel);
+                  })
+                  .filter(function (item) {
+                    return item && String(item.id) !== String(itemActual.id);
+                  })
+                  .slice(0, 2);
+
+                if (relacionados.length === 0) {
+                  container.html('<div class="col-xs-12 text-center">No hay relacionados para esta comisión.</div>');
+                  return;
+                }
+
+                $.each(relacionados, function (_, item) {
+                  var html = `
+                    <div class="col-xs-12 col-md-6">
+                      <div class="card-relacionado">
+                        <div class="fecha-relacionado">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                          ${escapeHtml(item.ayo || '')}
+                        </div>
+
+                        <h3 class="titulo-card-rel">${escapeHtml(item.titulo || '')}</h3>
+
+                        <p class="desc-card-rel">${escapeHtml(item.descripcion_corta || '')}</p>
+
+                        <div class="text-right">
+                          <a href="SINBANEM-ComisionDetalle.html?id=${item.id}" class="btn btn-ver-rel">
+                            Ver comisión <i class="glyphicon glyphicon-chevron-right" style="margin-left:5px;"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  `;
+
+                  container.append(html);
+                });
               }
 
               function initDetalle() {
@@ -343,9 +450,7 @@
                   return;
                 }
 
-                var item = jsonData.find(function (el) {
-                  return String(el.id) === String(id);
-                });
+                var item = buscarItemPorId(id);
 
                 if (!item) {
                   renderNotFound();
@@ -353,6 +458,7 @@
                 }
 
                 renderDetalle(item);
+                renderRelacionados(item);
               }
 
               initDetalle();
