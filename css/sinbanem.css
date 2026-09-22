@@ -2408,7 +2408,8 @@
 .ceppems-info h3 {
   color: var(--text-primary);
   font-weight: 700;
-  font-size: 38px;
+  font-size: 38
+  px;
   margin: 0 0 10px;
 }
 
