@@ -165,28 +165,16 @@
 
       <br>
 
-    <section class="container detalle-comision-section pt-30 pb-30">
+    <section class="container cd-section">
       <div id="detalleComisionContainer"></div>
     </section>
 
-        <br><br>
-
-        <div class="container">
-          <section id="relacionados">
-            <h2 class="pt-20">Relacionados</h2>
-            <hr class="hr-dorado">
-            <div class="row pt-20" id="relacionadosContainer"></div>
-          </section>
-        </div>
-
-        <br><br>
-
-          <section id="exploraSinbanem">
-            <div style="background-color: #fdf5f5; margin-bottom: 50px">
+          <section id="exploraSinbanem" class="cd-explora">
+            <div>
               <div class="container">
                 <h2>Explora SINBANEM</h2>
-                <hr class="hr-dorado-full">
-                <div class="row row-explora-center" style="margin-top: 20px; margin-bottom: 50px">
+                <hr class="cd-explora-hr">
+                <div class="cd-explora-grid">
                   <div class="col-xs-6 col-sm-4">
                     <a href="ecems.html" target="_self"
                       class="a-card">
@@ -331,51 +319,36 @@
 
               function renderDetalle(item) {
                 var html = `
-      <div class="row row-cards-top row-cards-equal">
-        <div class="col-xs-12 col-md-7 card-order-video">
-          <div class="card-top-sesion card-top-video">
-            <img class="detalle-comision-img" src="${escapeHtml(item.archivo || 'assets/SINBANEM/comisiones/comision.png')}" alt="${escapeHtml(item.titulo)}">
-          </div>
-        </div>
+      <div class="cd-grid">
+        <article class="cd-card">
+          <h1 class="cd-titulo">${escapeHtml(item.titulo || 'Sin título')}</h1>
+          <hr class="cd-hr">
 
-        <div class="col-xs-12 col-md-5 card-order-desc">
-          <div class="card-top-sesion card-top-descripcion">
-            <h1 class="detalle-comision-titulo">${escapeHtml(item.titulo || 'Sin título')}</h1>
-            <hr class="hr-dorado">
-
-            <p class="sesion-meta">
-              <span class="glyphicon glyphicon-globe"></span>
+          <ul class="cd-meta">
+            <li>
+              <i class="far fa-smile" aria-hidden="true"></i>
               <span>${escapeHtml(item.estatus || 'Sin estatus')}</span>
-            </p>
-
-            <p class="sesion-meta">
-              <span class="glyphicon glyphicon-calendar"></span>
+            </li>
+            <li>
+              <i class="far fa-calendar-check" aria-hidden="true"></i>
               <span>${escapeHtml(item.ayo || '')}</span>
-            </p>
-          </div>
-        </div>
-      </div>
+            </li>
+            <li>
+              <i class="fas fa-user-friends" aria-hidden="true"></i>
+              <span>${escapeHtml(item.integrantes || 'Sin integrantes registrados.')}</span>
+            </li>
+          </ul>
+        </article>
 
-      <div class="row row-cards-equal">
-        <div class="col-xs-12 col-md-7">
-          <div class="card-top-sesion card-top-materiales">
-            <h3 class="txt-materiales">Integrantes</h3>
-            <hr class="hr-dorado">
-            <div class="detalle-comision-objetivo">
-              ${escapeHtml(item.integrantes || 'Sin integrantes registrados.')}
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-md-5">
-          <div class="card-top-sesion card-top-enlaces">
-            <h3 class="txt-materiales">Objetivo de la comisión</h3>
-            <hr class="hr-dorado">
-            <div class="detalle-comision-objetivo">
-              ${escapeHtml(item.objetivo || item.descripcion_corta || 'Sin información disponible.')}
-            </div>
-          </div>
-        </div>
+        <article class="cd-card">
+          <h3 class="cd-subtitulo">
+            <i class="far fa-bullseye-arrow" aria-hidden="true"></i>
+            Objetivo de la comisión
+          </h3>
+          <p class="cd-texto">
+            ${escapeHtml(item.objetivo || item.descripcion_corta || 'Sin información disponible.')}
+          </p>
+        </article>
       </div>
     `;
 

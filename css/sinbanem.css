@@ -2638,3 +2638,144 @@ font-family: Noto Sans;
     gap: 16px;
   }
 }
+
+/* ===================================================
+   DETALLE DE COMISIÓN (SINBANEM-ComisionDetalle.html)
+=================================================== */
+.cd-section {
+  padding-top: 20px;
+  padding-bottom: 48px;
+}
+
+.cd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cd-card {
+  background: #fff;
+  border-radius: 12px 12px 22px 22px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18);
+  padding: 22px 22px 28px;
+  min-height: 220px;
+}
+
+.cd-titulo {
+  font-family: "Patria", Georgia, serif;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.cd-hr {
+  border: 0;
+  border-top: 1px solid #b89b5e;
+  width: 85%;
+  margin: 0 0 16px;
+}
+
+.cd-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cd-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: Noto Sans;
+  font-size: 14px;
+
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.cd-meta i {
+  width: 12px;
+  margin-top: 3px;
+  font-size: 10px;
+  color: var(--text-primary);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.cd-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-family: Noto Sans;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 6px 0 14px;
+}
+
+.cd-subtitulo i {
+  font-family: Noto Sans;
+  font-size: 16px;
+}
+
+.cd-texto {
+  font-family: Noto Sans;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/* Explora: franja rosa a todo lo ancho */
+.cd-explora {
+  background: #fdf5f5;
+  padding: 20px 0 48px;
+}
+
+.cd-explora h2 {
+  font-family: "Noto Sans", "Open Sans", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.cd-explora-hr {
+  border: 0;
+  border-top: 1px solid #c9a9b1;
+  max-width: 705px;
+  margin: 0 auto 18px;
+}
+
+.cd-explora-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.cd-explora-grid > div {
+  width: auto;
+  float: none;
+  padding: 0;
+}
+
+.cd-explora-grid .card-info {
+  width: 153px;
+  height: 150px;
+  margin: 0;
+  border-radius: 14px;
+}
+
+@media (max-width: 767px) {
+  .cd-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-card {
+    min-height: 0;
+  }
+}
