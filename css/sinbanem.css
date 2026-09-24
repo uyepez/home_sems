@@ -1444,7 +1444,7 @@
   .sesion-descripcion-corta {
     font-family: Noto Sans;
     color: #4b4b4b;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.45;
     margin-bottom: 18px;
     min-height: 48px;
@@ -1452,7 +1452,7 @@
 
   .sesion-meta {
     color: #4b4b4b;
-    font-size: 11px!important;
+    font-size: 12px!important;
     margin-bottom: 10px;
     display: flex;
     align-items: flex-start;
@@ -1510,7 +1510,8 @@
     }
 
     .sesion-titulo {
-      font-size: 18px;
+      font-family: Noto Sans;
+      font-size: 16px;
     }
 
     .btn-sesion {
@@ -1624,6 +1625,7 @@
 }
 
 .sesion-meta {
+  font-family: Noto Sans;
   font-size: 15px;
   color: #535353;
   margin-bottom: 10px;
@@ -1639,7 +1641,8 @@
 
 .txt-materiales {
   color: #1e5049;
-  font-size: 18px;
+  font-family: Noto Sans;
+  font-size: 16px;
   line-height: 1.3;
   font-weight: 700;
   margin: 30px 0 16px;
@@ -1714,7 +1717,9 @@
 
 #relacionados h2 {
   text-align: center;
-  font-size: 30px;
+  font-size: 32px;
+   font-family: Noto Sans;
+
   font-weight: 700;
   color: #7d1938;
   margin: 0 0 10px;
@@ -1763,8 +1768,9 @@
 }
 
 .desc-card-rel {
+font-family: Noto Sans;
   color: #4f4f4f;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
   margin-bottom: 18px;
   min-height: 78px;
@@ -1816,7 +1822,8 @@
   }
 
   #relacionados h2 {
-    font-size: 26px;
+    font-family: Patria;
+    font-size: 32px;
   }
 
   .titulo-card-rel {
@@ -1855,15 +1862,18 @@
   }
 
   #titulo {
-    font-size: 20px;
+    font-family: Patria;
+    font-size: 32px;
   }
 
   #descripcion {
+    font-family: Noto san;
     font-size: 14px;
   }
 
   .txt-materiales {
-    font-size: 17px;
+      font-family: Noto Sans;
+    font-size: 16px;
   }
 
   .btn-material,
@@ -1882,6 +1892,7 @@
   }
 
   .desc-card-rel {
+    font-family: Noto Sans;
     min-height: auto;
     font-size: 14px;
   }
@@ -1960,14 +1971,14 @@
   font-family: Noto Sans;
   font-weight: 700;
   font-style: Bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
   color: #6e1833;
   margin: 0 0 14px;
 }
 
 .comision-descripcion {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.55;
   color: #555;
   margin-bottom: 16px;
@@ -1985,7 +1996,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12px;
+  font-family: Noto Sans;
   color: #5b5b5b;
   margin-bottom: 10px;
 }
@@ -2078,7 +2090,8 @@
 }
 
 .detalle-comision-titulo {
-  font-size: 52px;
+  font-size: 32px;
+  font-family: Patria;
   line-height: 1.05;
   font-weight: 700;
   color: #6f1d37;
@@ -2124,7 +2137,8 @@
 }
 
 .detalle-comision-objetivo {
-  font-size: 15px;
+  font-size: 14px;
+  font-family: Noto san;
   line-height: 1.7;
   color: #555;
   max-width: 600px;
@@ -2158,7 +2172,8 @@
   }
 
   .detalle-comision-titulo {
-    font-size: 30px;
+    font-family: Patria;
+    font-size: 32px;
   }
 
   .detalle-comision-subtitulo {
@@ -2453,4 +2468,173 @@
 .icon-search{
   padding-left: 5px;
   padding-block-start: 5px;
+}
+/* ===================================================
+   QUIÉNES SOMOS (quienesSomos-SINBANEM.html)
+=================================================== */
+.qs-page {
+  margin-top: 58px;
+  padding-top: 40px;
+}
+
+/* Columna central angosta con márgenes laterales amplios */
+.qs-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.qs-title {
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.qs-subtitle {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  text-align: center;
+  color: #727171;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.qs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.qs-card {
+  background: var(--bg-secondary);
+  border: 1px solid #f0e2e5;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+
+.qs-grid .qs-card {
+  margin-bottom: 0;
+}
+
+.qs-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.qs-card-head img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.qs-card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.qs-card-list h3 {
+  margin-bottom: 16px;
+}
+
+.qs-card p {
+  color: #727171;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0 0 8px;
+}
+
+/* Directorio: franja gris a todo lo ancho */
+.qs-directorio {
+  background: #f5f5f5;
+  padding: 40px 0 48px;
+  margin-top: 16px;
+}
+
+.qs-dir-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 620px;
+  margin: 24px auto 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 24px 32px;
+}
+
+.qs-dir-card img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.qs-dir-card h4 {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin: 0 0 6px;
+}
+
+.qs-dir-card p {
+  color: var(--bg-separator);
+  margin: 0 0 14px;
+}
+
+/* Explora SINBANEM */
+.qs-explora {
+  padding: 48px 0 64px;
+}
+
+.qs-hr {
+  width: 120px;
+  margin: 0 auto 28px;
+  border: 0;
+  border-top: 3px solid #caa65b;
+}
+
+.qs-explora-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.qs-explora-grid > div {
+  width: auto;
+  padding: 0;
+  float: none;
+}
+
+.qs-explora-grid .card-info {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .qs-page {
+    padding-top: 24px;
+  }
+
+  .qs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-card {
+    padding: 22px 20px;
+  }
+
+  .qs-dir-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .qs-explora-grid {
+    gap: 16px;
+  }
 }
