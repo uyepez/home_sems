@@ -15,6 +15,8 @@
 }
 
 h2{
+  font-size: 28;
+  font-family: Noto san;
     text-align: center;
     color: var(--text-primary);
 }
