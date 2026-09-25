@@ -1435,7 +1435,7 @@
 
   .sesion-titulo {
     color: #7b1734;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 12px;
@@ -1444,7 +1444,7 @@
   .sesion-descripcion-corta {
     font-family: Noto Sans;
     color: #4b4b4b;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.45;
     margin-bottom: 18px;
     min-height: 48px;
@@ -1452,7 +1452,7 @@
 
   .sesion-meta {
     color: #4b4b4b;
-    font-size: 12px!important;
+    font-size: 14px!important;
     margin-bottom: 10px;
     display: flex;
     align-items: flex-start;
@@ -1511,7 +1511,7 @@
 
     .sesion-titulo {
       font-family: Noto Sans;
-      font-size: 16px;
+      font-size: 20px;
     }
 
     .btn-sesion {
@@ -1971,14 +1971,14 @@ font-family: Noto Sans;
   font-family: Noto Sans;
   font-weight: 700;
   font-style: Bold;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.2;
   color: #6e1833;
   margin: 0 0 14px;
 }
 
 .comision-descripcion {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.55;
   color: #555;
   margin-bottom: 16px;
@@ -1996,7 +1996,7 @@ font-family: Noto Sans;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   font-family: Noto Sans;
   color: #5b5b5b;
   margin-bottom: 10px;
