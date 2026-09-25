@@ -325,6 +325,15 @@
     return match ? match[1] : '';
   }
 
+  var MESES = { enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5, julio: 6, agosto: 7, septiembre: 8, setiembre: 8, octubre: 9, noviembre: 10, diciembre: 11 };
+
+  // Convierte "Jueves 22 de enero de 2026" en timestamp; 0 si no se puede leer
+  function parseFechaEs(fecha) {
+    var m = removeAccents(String(fecha || '').toLowerCase()).match(/(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})/);
+    if (!m || MESES[m[2]] === undefined) return 0;
+    return new Date(Number(m[3]), MESES[m[2]], Number(m[1])).getTime();
+  }
+
   function getModalidadIcon(modalidad) {
     var txt = removeAccents(String(modalidad || '').toLowerCase());
 
@@ -446,6 +455,11 @@
       var matchesSearch = textoBusqueda.indexOf(searchTerm) !== -1;
 
       return matchesCategory && matchesSearch;
+    });
+
+    // Más recientes primero
+    filteredData.sort(function (a, b) {
+      return parseFechaEs(b.fecha) - parseFechaEs(a.fecha);
     });
 
     var totalPages = Math.ceil(filteredData.length / itemsPerPage);

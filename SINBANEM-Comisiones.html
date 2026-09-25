@@ -392,6 +392,16 @@
                       return matchesCategory && matchesSearch;
                   });
 
+                  // Más recientes primero: por el año más alto de "ayo" (p. ej. "2025-2026"),
+                  // y a igualdad, el id mayor (registrado después) va antes
+                  var latestYear = function (item) {
+                      var years = String(item.ayo || '').match(/\d{4}/g) || [];
+                      return years.length ? Math.max.apply(null, years.map(Number)) : 0;
+                  };
+                  filteredData.sort(function (a, b) {
+                      return (latestYear(b) - latestYear(a)) || (Number(b.id) - Number(a.id));
+                  });
+
                   var totalPages = Math.ceil(filteredData.length / itemsPerPage);
                   if (currentPage > totalPages) {
                       currentPage = totalPages || 1;
