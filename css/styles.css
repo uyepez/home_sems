@@ -3473,3 +3473,23 @@ h3{
 
 }
 
+
+/* A tu alcance: última fila (Aula abierta + En la escuela nos cuidamos) */
+.card-info.card-fila-final {
+  height: 244px;
+  margin-top: 40px;
+}
+.card-info.card-ancha {
+  width: calc(100% - 34px);
+}
+.card-fila-final .img-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-fila-final .img-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
