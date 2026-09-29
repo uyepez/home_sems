@@ -116,16 +116,34 @@
     padding: 16px;
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 14px;
+    height: 200px;
+    box-sizing: border-box;
+    position: relative;
 
     box-shadow: 0 3px 8px rgba(0,0,0,.15);
 
     flex-shrink: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Slick fuerza display:block en .slick-slide; mantenemos el layout flex */
+.slider-documentos .doc-card.slick-slide {
+    display: flex;
+}
+
+.doc-card:hover,
+.doc-card:focus {
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0,0,0,.25);
 }
 
 .doc-card img {
-    
+    align-self: center;
     height: 88px;
     object-fit: contain;
 }
@@ -133,7 +151,24 @@
 .doc-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
+    flex: 1;
+}
+
+/* El enlace va fijo abajo a la derecha para que el título quede centrado */
+.doc-link {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    color: white;
+    font-size: 12px;
+    opacity: .9;
+}
+
+.doc-card:hover .doc-link {
+    text-decoration: underline;
+    opacity: 1;
 }
 
 .doc-info h3 {
