@@ -1,0 +1,35 @@
+{
+  "numero": "05",
+  "xlsx": "C:\\Users\\NéstorUrielYépezCerv\\Downloads\\Tarjetas_Bachiller_Web_05.xlsx",
+  "articulos": {
+    "03": {
+      "insertar": [
+        { "antes": "La uniformidad como supervivencia", "imagen": "HEADS-4-HEAD 4 1984.png", "alt": "1984" }
+      ]
+    },
+    "08": { "html": "EmocionesenAccion.html" },
+    "11": { "corregir": [{ "de": "y losestudiantes", "a": "y los estudiantes" }] },
+    "14": { "galeria": "Archivo General del Estado de Oaxaca" },
+    "16": { "galeria": "COMIC COMPLETO JPGs", "pdf": "LA VOZ DEL LAGO COMIC.pdf" },
+    "20": {
+      "insertar": [
+        { "antes": "Por esa razón, qué difícil", "imagen": "Archivo General del Estado de Oaxaca-8.png", "alt": "Dibujos de Guadalupe Dueñas" }
+      ]
+    },
+    "22": {
+      "head": null,
+      "insertar": [
+        { "antes": "I", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-1.png", "alt": "Nahui Olin" },
+        { "antes": "II", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-2.png", "alt": "Winétt de Rokha" },
+        { "antes": "III", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-3.png", "alt": "Magda Portal" },
+        { "antes": "IV", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-4.png", "alt": "Mariblanca Sabas Alomá" },
+        { "antes": "V", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-5.png", "alt": "Emma Pérez" },
+        { "antes": "VI", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-6.png", "alt": "Blanca Luz Brum" },
+        { "antes": "VII", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-7.png", "alt": "Norah Lange" },
+        { "antes": "VIII", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-8.png" },
+        { "antes": "IX", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-9.png", "alt": "Nellie Campobello" },
+        { "antes": "X", "exacto": true, "imagen": "MUJERES VANGUARDISTAS WEB/MUJERES VANGUARDISTAS WEB-10.png", "alt": "Hilda Mundy" }
+      ]
+    }
+  }
+}
