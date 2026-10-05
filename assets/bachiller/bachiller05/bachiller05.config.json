@@ -7,6 +7,12 @@
         { "antes": "La uniformidad como supervivencia", "imagen": "HEADS-4-HEAD 4 1984.png", "alt": "1984" }
       ]
     },
+    "05": {
+      "titulo": "En ambos lados del espejo",
+      "seccion": "Viaje literario",
+      "autor": "Yadira Sanabrais Martín",
+      "descripcion": "¿Quién fue Margarita Maza? ¿Cómo escribía? Aquí te compartimos una biografía y una carta de Margarita a Benito Juárez."
+    },
     "08": { "html": "EmocionesenAccion.html" },
     "11": { "corregir": [{ "de": "y losestudiantes", "a": "y los estudiantes" }] },
     "14": { "galeria": "Archivo General del Estado de Oaxaca" },
