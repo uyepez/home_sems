@@ -148,7 +148,6 @@
           <li data-target="#myCarousel" data-slide-to="9"></li>
           <li data-target="#myCarousel" data-slide-to="10"></li>
           <li data-target="#myCarousel" data-slide-to="11"></li>
-          <li data-target="#myCarousel" data-slide-to="11"></li>
           
         </ol>
 
@@ -1542,7 +1541,19 @@
     <script src="https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js"></script>
     <script src="js/script.js"></script>
     <script src="https://framework-gb.cdn.gob.mx/applications/cms/modal_global_cms.js"></script>
-   
+
+    <script>
+      // gobmx.js carga Bootstrap de forma asíncrona, después de que data-ride="carousel"
+      // ya se evaluó; por eso el carrusel principal se inicializa aquí de forma explícita.
+      (function iniciarCarruselPrincipal(intentos) {
+        if (window.jQuery && jQuery.fn.carousel) {
+          jQuery('#myCarousel').carousel({ interval: 5000, pause: 'hover' }).carousel('cycle');
+        } else if (intentos > 0) {
+          setTimeout(function () { iniciarCarruselPrincipal(intentos - 1); }, 200);
+        }
+      })(50);
+    </script>
+
 
       <!-- Script para abrir el modal 
       <script>
