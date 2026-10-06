@@ -22,6 +22,14 @@
         { "antes": "Por esa razón, qué difícil", "imagen": "Archivo General del Estado de Oaxaca-8.png", "alt": "Dibujos de Guadalupe Dueñas" }
       ]
     },
+    "22": {
+      "tarjeta": 24,
+      "enlace": "/bernardoesquinca.html",
+      "seccion": "Autor del mes",
+      "titulo": "Bernardo Esquinca",
+      "autor": "",
+      "descripcion": "El narrador Bernardo Esquinca nos comparte su experiencia como escritor."
+    },
     "vinagrillo": {
       "head": null,
       "insertar": [
