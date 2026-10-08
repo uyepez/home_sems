@@ -18,6 +18,18 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/lricano.css" />
+    <style>
+      /* .row es flex en el framework gob.mx: sin min-width:0 una URL larga ensancha la columna y saca el texto de la pantalla */
+      .seccion-np .row > [class*="col-"] { min-width: 0; }
+      .seccion-np .textos { overflow-wrap: anywhere; }
+      .seccion-np .textos a { overflow-wrap: anywhere; }
+      .seccion-np .textos:has(a[href^="http"]) { text-align: left; } /* sin huecos al justificar antes de una URL */
+      @media (max-width: 767px) {
+        .seccion-np { padding: 24px 16px; border-radius: 18px; margin-left: 8px; margin-right: 8px; }
+        .seccion-np .row > div:empty { display: none; }
+        .seccion-np blockquote.textos { padding: 8px 12px; margin-left: 0; margin-right: 0; }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -132,9 +144,9 @@
             <p class="textos">Es por eso que hay que dar lugar, y no cualquier lugar, a la literatura; no suelta, ni como tarea, sino <em>lecturando</em> con toda la comunidad, como una forma de dar espacio a los afectos, a los sentires, a lo humano. Incluir la lectura de literatura en el aula extiende un lazo en el proceso de enseñanza-aprendizaje, y rompe a la vez una barrera, no solo para el aprendizaje, sino para la relación humana desde el lado del cuidado y de lo amable.</p>
             <p class="textos">Destinar algunos minutos de clase para <em>lecturar</em> puede contra-restar y quizá ser una forma de resistir ante la violencia, ya que lo in-simbolizable podría encontrar una posibilidad de restitución del sujeto. Tocar con la empatía, el dolor, la sorpresa, pero sobre todo con el cuidado de sí, y como efecto en-lazarse con el mundo de los afectos y de los otros, porque es con los otros y no sobre los otros que se puede re-construir el mundo.</p>
             <p class="textos" style="color: #9f2241; font-size: 20px; margin-top: 25px;"><strong>Referencias bibliográficas</strong></p>
-            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>López, M. E. (17 de noviembre de 2020). Lecturar [Entrada de blog<em>]. Jardín LAC. Lectura, arte y conversación en (y para el) espacio público.</em> https://www.jardinlac.org/post/lecturar.</p></blockquote>
-            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>Rivas-Sucari, H. C., Manrique-Rabelo, C. M., Rivas-Sucari, S. A., Flores-Núñez, A. M., y Rodríguez-Eguizabal, J. L. (2025). El poder de la literatura en la salud mental. <em>Gaceta Médica de México</em>, <em>161</em>(5), 560-564. https://doi.org/10.24875/gmm.25000150</p></blockquote>
-            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>Tejeda, A. G. (23 de abril de 2026). La humanidad avanza hacia un pico de oscuridad: Han Kang, Nobel de Literatura. La Jornada. https://www.jornada.com.mx/noticia/2026/04/23/cultura/la-humanidad-avanza-hacia-un-pico-de-oscuridad-han-kang-nobel-de-literatura</p></blockquote>
+            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>López, M. E. (17 de noviembre de 2020). Lecturar [Entrada de blog<em>]. Jardín LAC. Lectura, arte y conversación en (y para el) espacio público.</em> <a href="https://www.jardinlac.org/post/lecturar" target="_blank" rel="noopener">https://www.jardinlac.org/post/lecturar</a>.</p></blockquote>
+            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>Rivas-Sucari, H. C., Manrique-Rabelo, C. M., Rivas-Sucari, S. A., Flores-Núñez, A. M., y Rodríguez-Eguizabal, J. L. (2025). El poder de la literatura en la salud mental. <em>Gaceta Médica de México</em>, <em>161</em>(5), 560-564. <a href="https://doi.org/10.24875/gmm.25000150" target="_blank" rel="noopener">https://doi.org/10.24875/gmm.25000150</a></p></blockquote>
+            <blockquote class="textos" style="border-left: 4px solid #a48138; font-size: 15px; color: #333;"><p>Tejeda, A. G. (23 de abril de 2026). La humanidad avanza hacia un pico de oscuridad: Han Kang, Nobel de Literatura. La Jornada. <a href="https://www.jornada.com.mx/noticia/2026/04/23/cultura/la-humanidad-avanza-hacia-un-pico-de-oscuridad-han-kang-nobel-de-literatura" target="_blank" rel="noopener">https://www.jornada.com.mx/noticia/2026/04/23/cultura/la-humanidad-avanza-hacia-un-pico-de-oscuridad-han-kang-nobel-de-literatura</a></p></blockquote>
             <p class="textos"><strong>Cinthya Berenice Rodríguez Piedra</strong> es maestra en Psicología Clínica por la Universidad Autónoma de Querétaro y licenciada en Psicología por la Universidad Michoacana de San Nicolas de Hidalgo (UMSNH), donde trabaja como profesora investigadora desde hace 17 años. Coordina actualmente el Programa Institucional de Tutorías en la UMSNH, a la vez que practica la clínica psicoanalítica en consultorio privado desde hace 16 años. El psicoanálisis, el feminismo y la literatura son espacios políticos y de afectos que sostienen su andar cotidiano como hija, madre, hermana, tía, pareja, docente y amiga.</p>
           </div>
           <div class="col-sm-2"></div>
