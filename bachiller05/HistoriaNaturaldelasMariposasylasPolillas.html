@@ -18,6 +18,18 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/lricano.css" />
+    <style>
+      /* .row es flex en el framework gob.mx: sin min-width:0 una URL larga ensancha la columna y saca el texto de la pantalla */
+      .seccion-np .row > [class*="col-"] { min-width: 0; }
+      .seccion-np .textos { overflow-wrap: anywhere; }
+      .seccion-np .textos a { overflow-wrap: anywhere; }
+      .seccion-np .textos:has(a[href^="http"]) { text-align: left; } /* sin huecos al justificar antes de una URL */
+      @media (max-width: 767px) {
+        .seccion-np { padding: 24px 16px; border-radius: 18px; margin-left: 8px; margin-right: 8px; }
+        .seccion-np .row > div:empty { display: none; }
+        .seccion-np blockquote.textos { padding: 8px 12px; margin-left: 0; margin-right: 0; }
+      }
+    </style>
   </head>
   <body>
     <header>
