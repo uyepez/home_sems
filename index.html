@@ -1530,7 +1530,7 @@
 
 
 
-<!--<a href="JavaScript:void(0)" id="clicOnLoad" class="open-modal" data-img="assets/carousel/Comunicado_06_07_2026-1_page-0001.jpg"></a>-->
+<a href="JavaScript:void(0)" id="clicOnLoad" class="open-modal" data-img="assets/home_index/comunicado_sep.jpeg"></a>
     
         
     </main>
@@ -1692,11 +1692,14 @@
         });
 
 
-        /*window.addEventListener('load', function () {
-            setTimeout(function () {
-                document.getElementById('clicOnLoad').click();
-            }, 300);
-        });*/
+        // Comunicado emergente al abrir la página (espera a que gobmx.js cargue Bootstrap)
+        (function abrirComunicado(intentos) {
+          if (jQuery.fn.modal) {
+            document.getElementById('clicOnLoad').click();
+          } else if (intentos > 0) {
+            setTimeout(function () { abrirComunicado(intentos - 1); }, 200);
+          }
+        })(50);
 
       });
 
