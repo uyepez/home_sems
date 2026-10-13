@@ -1693,13 +1693,13 @@
 
 
         // Comunicado emergente al abrir la página (espera a que gobmx.js cargue Bootstrap)
-        (function abrirComunicado(intentos) {
+        /*(function abrirComunicado(intentos) {
           if (jQuery.fn.modal) {
             document.getElementById('clicOnLoad').click();
           } else if (intentos > 0) {
             setTimeout(function () { abrirComunicado(intentos - 1); }, 200);
           }
-        })(50);
+        })(50);*/
 
       });
 
