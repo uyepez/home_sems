@@ -30,6 +30,14 @@
       "autor": "",
       "descripcion": "El narrador Bernardo Esquinca nos comparte su experiencia como escritor."
     },
+    "23": {
+      "tarjeta": 25,
+      "html": "ElPromotordeHojalata.html",
+      "seccion": "Aula abierta",
+      "titulo": "El promotor de hojalata y su fracaso con Jardín de Venus",
+      "autor": "Miguel García",
+      "descripcion": "Un docente cuenta cómo sus alumnos rechazaron Jardín de Venus, de Samaniego, y defiende la obra como poesía."
+    },
     "vinagrillo": {
       "head": null,
       "insertar": [
