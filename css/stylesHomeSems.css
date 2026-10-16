@@ -611,6 +611,50 @@
 
 }
 
+/* Botón sólido vino con chevron (FDC 2026) */
+.boton-fcd-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #9f2241;
+    color: #fff !important;
+    border-radius: 28px;
+    padding: 12px 28px;
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 16px rgba(159, 34, 65, .25);
+    transition: background-color .3s, box-shadow .3s;
+}
+
+.boton-fcd-solid:hover,
+.boton-fcd-solid:focus {
+    background: #691c32;
+    color: #fff !important;
+    box-shadow: 0 8px 20px rgba(105, 28, 50, .35);
+}
+
+.fcd-instagram {
+    padding: 50px 15px 60px;
+}
+
+.fcd-instagram-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #9f2241;
+}
+
+.fcd-instagram-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
 
 
 .estrategia-section {
@@ -796,5 +840,37 @@
         letter-spacing: 0%;
         text-align: center;
 
+    }
+}
+/* Tarjetas de fecha y lugar del mismo alto (FDC 2026) */
+.fcd-fecha-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fcd-fecha-row > [class*="col-"] {
+    display: flex;
+}
+
+.fcd-fecha-row .card-date {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fcd-fecha-row::before,
+.fcd-fecha-row::after {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .fcd-fecha-row {
+        justify-content: center;
+    }
+
+    .fcd-fecha-row > .col-md-2:empty {
+        display: none;
     }
 }
