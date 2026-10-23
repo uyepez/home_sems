@@ -451,6 +451,17 @@
     border-radius: 25px;
 }
 
+/* Artículos de Bachiller: .row es flex en el framework gob.mx y una imagen o URL ancha estira la columna y saca el texto de la pantalla */
+.seccion-np .row > [class*="col-"],
+main.page .row > [class*="col-"]:has(.textos) { min-width: 0; }
+.seccion-np img,
+main.page img.bordes,
+main.page > .container > img { max-width: 100%; height: auto; }
+.seccion-np iframe { max-width: 100%; }
+.seccion-np .tabla-container { overflow-x: auto; }
+.seccion-np .textos,
+.seccion-np .textos a { overflow-wrap: anywhere; }
+
 .encabezado {
     background-color: #9F2241; 
     padding-top: 15px; 
@@ -913,13 +924,20 @@
       background-color: #A48138;
       color: white;
       width: 1100px;
+      max-width: 100%;
       height: auto;
-      margin: 0 auto 40px auto; 
+      margin: 0 auto 40px auto;
       padding: 10px 25px;
       border-radius:  25px 0px 0px 25px;
       display: block;
       margin-right: 0px;
-      margin-left: auto;   
+      margin-left: auto;
+}
+
+@media (max-width: 767px) {
+    /* en mobile el texto de la barra ocupa todo el ancho (col-xs-3 lo dejaba en una columna angosta) */
+    .titulo-bar5 .row > [class*="col-"] { width: 100%; }
+    .titulo-bar5 .row > div:empty { display: none; }
 }
 
 .seccion-ml {
@@ -1620,24 +1638,23 @@ color: var(--text-secondary);
     display: none;
 }
 
+.portada-movil {
+    display: none;
+}
+
 @media (max-width: 768px) {
     /*Cambia el orden de la imagen y card*/
     .card-bachiller .col-sm-5:nth-of-type(3) {
         display: none;
     }
-    .card-bachiller .col-sm-5:nth-of-type(2) > p::after {
-        content: "";
+    .portada-movil {
         display: block;
-        background-image: url('../assets/bachiller/bachiller05/BACHILLER05WEB.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        margin: 0 auto 20px;
+    }
+    .portada-movil img {
         width: 220px;
-        height: 300px;
-        margin: 20px auto;
+        height: auto;
         border-radius: 25px;
-        overflow: hidden;
-        text-align: center;
         box-shadow: 12px 12px 8px rgba(39, 39, 39, 0.5);
     }
     .card-bachiller {
