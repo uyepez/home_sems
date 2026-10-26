@@ -38,6 +38,16 @@
       "autor": "Miguel García",
       "descripcion": "Un docente cuenta cómo sus alumnos rechazaron Jardín de Venus, de Samaniego, y defiende la obra como poesía."
     },
+    "24": {
+      "tarjeta": 26,
+      "html": "PajareandoenSanAndresdelaCal.html",
+      "head": "HEADS -24.png",
+      "seccion": "Escaparate",
+      "titulo": "Pajareando en San Andrés de la Cal",
+      "autor": "Aída Heras Medina y Fernando Urbina Torres",
+      "descripcion": "El avistamiento de aves en una comunidad indígena de Morelos: saberes locales, especies migratorias y cómo protegerlas.",
+      "corregir": [{ "de": "            <p class=\"textos\" style=\"white-space: pre-wrap; tab-size: 4; text-align: right;\">M. en E. A. Aída Heras Medina, BEDR 94, DGETAyCM<br />Dr. Fernando Urbina Torres, CIB, UAEM</p>\n", "a": "" }]
+    },
     "vinagrillo": {
       "head": null,
       "insertar": [
