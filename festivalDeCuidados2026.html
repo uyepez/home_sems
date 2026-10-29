@@ -547,6 +547,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
     <script>
+      // Movimiento automático de carruseles: avanza cada 3 s, regresa al inicio al llegar al final
+      // y se pausa con el cursor encima o con el visor abierto
+      function autoCarrusel(track, lb, paso) {
+        var pausado = false;
+        track.addEventListener("mouseenter", function () { pausado = true; });
+        track.addEventListener("mouseleave", function () { pausado = false; });
+        track.addEventListener("focusin", function () { pausado = true; });
+        track.addEventListener("focusout", function () { pausado = false; });
+        setInterval(function () {
+          if (pausado || lb.classList.contains("abierto")) return;
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+            track.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            track.scrollBy({ left: paso(), behavior: "smooth" });
+          }
+        }, 3000);
+      }
+
       // Galería FDC: carrusel con flechas + visor ampliado
       (function () {
         var gal = document.getElementById("galeria-fdc");
@@ -561,6 +579,7 @@
           var item = track.querySelector(".fdc-gal-item");
           return item ? item.offsetWidth + 20 : track.clientWidth;
         }
+        autoCarrusel(track, lb, paso);
         gal.querySelector(".fdc-gal-prev").addEventListener("click", function () {
           track.scrollBy({ left: -paso(), behavior: "smooth" });
         });
@@ -609,6 +628,7 @@
           var item = track.querySelector(".fdc-vid-card");
           return item ? item.offsetWidth + 20 : track.clientWidth;
         }
+        autoCarrusel(track, lb, paso);
         gal.querySelector(".fdc-gal-prev").addEventListener("click", function () {
           track.scrollBy({ left: -paso(), behavior: "smooth" });
         });
