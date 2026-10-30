@@ -16,10 +16,10 @@
     "08": { "html": "EmocionesenAccion.html" },
     "11": { "corregir": [{ "de": "y losestudiantes", "a": "y los estudiantes" }] },
     "14": { "galeria": "Archivo General del Estado de Oaxaca" },
-    "16": { "galeria": "COMIC COMPLETO JPGs", "pdf": "LA VOZ DEL LAGO COMIC.pdf" },
+    "16": { "head": null, "galeria": "COMIC COMPLETO JPGs", "pdf": "LA VOZ DEL LAGO COMIC.pdf" },
     "20": {
       "insertar": [
-        { "antes": "Por esa razón, qué difícil", "imagen": "Archivo General del Estado de Oaxaca-8.png", "alt": "Dibujos de Guadalupe Dueñas" }
+        { "antes": "Sí, sus cuentos son breves", "imagen": "Archivo General del Estado de Oaxaca-8.png", "alt": "Dibujos de Guadalupe Dueñas" }
       ]
     },
     "22": {
