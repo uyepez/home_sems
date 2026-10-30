@@ -462,6 +462,17 @@ main.page > .container > img { max-width: 100%; height: auto; }
 .seccion-np .textos,
 .seccion-np .textos a { overflow-wrap: anywhere; }
 
+/* Semblanza del autor al final de los artículos de Bachiller: recuadro separado del texto */
+.semblanza {
+    background-color: #EEE4D1;
+    border-radius: 18px;
+    box-shadow: 6px 6px 12px rgba(39, 39, 39, 0.15);
+    padding: 18px 22px;
+    margin: 35px 0 10px;
+}
+.semblanza .textos { font-size: 15px; }
+.semblanza .textos:last-child { margin-bottom: 0; }
+
 .encabezado {
     background-color: #9F2241; 
     padding-top: 15px; 
