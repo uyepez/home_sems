@@ -458,7 +458,64 @@
         </div>
       </section>
 
-      <!--******************* Galería ***********************-->
+
+      <!--******************* Galería de videos ***********************-->
+
+      <!--******************* Galería de videos Trabajos realizados por estudiantes de Educación Media Superior***********************-->
+
+      <section id="videos-estudiantes-fdc" class="fdc-galeria fdc-videos">
+        <div class="container">
+          <div class="text-center">
+            <h2 class="fdc-gal-title">Trabajos realizados por estudiantes de Educación Media Superior</h2>
+          </div>
+          <hr class="fdc-gal-line" />
+
+          <div class="fdc-gal-wrap">
+            <button type="button" class="fdc-gal-arrow fdc-gal-prev" aria-label="Anterior">
+              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <div class="fdc-gal-track">
+              <article class="fdc-vid-card">
+                <button type="button" class="fdc-vid-thumb" data-video="i5mMvt9aOd4" aria-label="Ver video Trabajos 1"><img src="https://i.ytimg.com/vi/i5mMvt9aOd4/hqdefault.jpg" alt="Trabajos 1" loading="lazy" /></button>
+                <span class="fdc-vid-mesa">Video 1</span>
+                <h3 class="fdc-vid-title">Trabajos 1 Festival de Cuidados</h3>
+              </article>
+              <article class="fdc-vid-card">
+                <button type="button" class="fdc-vid-thumb" data-video="VTgp-kWel_0" aria-label="Ver video Trabajos 2"><img src="https://i.ytimg.com/vi/VTgp-kWel_0/hqdefault.jpg" alt="Trabajos 2" loading="lazy" /></button>
+                <span class="fdc-vid-mesa">Video 2</span>
+                <h3 class="fdc-vid-title">Trabajos 2 Festival de Cuidados</h3>
+              </article>
+              <article class="fdc-vid-card">
+                <button type="button" class="fdc-vid-thumb" data-video="6vEo5qHQDGU" aria-label="Ver video Trabajos 3"><img src="https://i.ytimg.com/vi/6vEo5qHQDGU/hqdefault.jpg" alt="Trabajos 3" loading="lazy" /></button>
+                <span class="fdc-vid-mesa">Video 3</span>
+                <h3 class="fdc-vid-title">Trabajos 3 Festival de Cuidados</h3>
+              </article>
+              <article class="fdc-vid-card">
+                <button type="button" class="fdc-vid-thumb" data-video="EYWAglVg4dg" aria-label="Ver video Trabajos 4"><img src="https://i.ytimg.com/vi/EYWAglVg4dg/hqdefault.jpg" alt="Trabajos 4" loading="lazy" /></button>
+                <span class="fdc-vid-mesa">Video 4</span>
+                <h3 class="fdc-vid-title">Trabajos 4 Festival de Cuidados</h3>
+              </article>
+            </div>
+
+            <button type="button" class="fdc-gal-arrow fdc-gal-next" aria-label="Siguiente">
+              <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Visor de video ampliado -->
+        <div class="fdc-lightbox" aria-hidden="true">
+          <button type="button" class="fdc-lb-close" aria-label="Cerrar">&times;</button>
+          <button type="button" class="fdc-lb-prev" aria-label="Anterior">&#8249;</button>
+          <div class="fdc-lb-video">
+            <iframe src="" title="Trabajos de estudiantes - Festival de Cuidados 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <button type="button" class="fdc-lb-next" aria-label="Siguiente">&#8250;</button>
+        </div>
+      </section>
+
+      <!--******************* Galería de videos Trabajos realizados por estudiantes de Educación Media Superior***********************-->
 
       <section id="galeria-fdc" class="fdc-galeria">
         <div class="container">
@@ -614,10 +671,8 @@
         });
       })();
 
-      // Galería de videos FDC: carrusel con flechas + visor de YouTube
-      (function () {
-        var gal = document.getElementById("videos-fdc");
-        if (!gal) return;
+      // Galerías de videos FDC: carrusel con flechas + visor de YouTube
+      Array.prototype.forEach.call(document.querySelectorAll(".fdc-videos"), function (gal) {
         var track = gal.querySelector(".fdc-gal-track");
         var items = gal.querySelectorAll(".fdc-vid-thumb");
         var lb = gal.querySelector(".fdc-lightbox");
@@ -662,7 +717,7 @@
           if (e.key === "ArrowLeft") mostrar(actual - 1);
           if (e.key === "ArrowRight") mostrar(actual + 1);
         });
-      })();
+      });
     </script>
   </body>
 </html>
