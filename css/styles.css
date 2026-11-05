@@ -1905,11 +1905,13 @@ h2{
   background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 5px;
   padding: 20px;
   border-radius: 20px;
-  height: 450px;
+  /* crece con el titulo; en la fila flex todas quedan de la misma altura */
+  height: 100%;
+  min-height: 420px;
 }
 .p-boletin{
   color: var(--text-secondary);
@@ -1926,9 +1928,25 @@ h2{
 }
 .card-boletin > img{
   border-radius: 20px;
+  /* recuadro fijo 16:9: reserva el espacio aunque la imagen aun no cargue (lazy) */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #e3e3e3;
+}
+/* imagenes que llegan de la API: aparecen con un fundido al terminar de cargar */
+.card-boletin > img.img-diferida{
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.card-boletin > img.img-diferida.cargada{
+  opacity: 1;
 }
 .card-boletin-btn{
   text-align: end;
+  /* siempre al fondo de la tarjeta, sin salirse */
+  margin-top: auto;
+  padding-top: 10px;
 }
 
 /* seccion quienes somos carrusel de documentos */

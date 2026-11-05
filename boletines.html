@@ -291,74 +291,7 @@
         </div>
         <section>
           <div class="row" style="margin:40px 0; display: flex; flex-wrap: wrap;" id="contenedor-boletines">
-
-            <div class="col-md-4 " style="margin-bottom: 30px;">
-              <div class="card-boletin">
-                <img
-                  class="img-responsive"
-                  src="assets/boletines/2025/difusion2.png"
-                  alt="boletin"
-                />
-                <strong>18 de Febrero de 2025</strong>
-                <p class="p-boletin">Boletín 219</p>
-                <p>Comisión de Educación Palacio Legislativo de San Lázaro Tercera reunión ordinaria</p>
-                <div class="card-boletin-btn">
-                  <a href="/boletin.html">
-                    <button type="button" class="btn boton">
-                      Leer
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 " style="margin-bottom: 30px;">
-              <div class="card-boletin">
-                <img
-                  class="img-responsive"
-                  src="assets/boletines/2025/BOLETIN3.png"
-                  alt="difusion2"
-                />
-                <strong>17 de febrero de 2025</strong>
-                <p class="p-boletin">Boletín</p>
-                <p>
-                  Anteproyecto de Ley General de Educación Media Superior
-                </p>
-                <div class="card-boletin-btn">
-                  <a href="#">
-                    <button type="button" class="btn boton">
-                      Leer
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 " style="margin-bottom: 30px;">
-              <div class="card-boletin">
-                <img
-                  class="img-responsive"
-                  src="assets/boletines/2024/BTED 30 dic.jpg"
-                  alt="boletin"
-                />
-                <strong>30 de diciembre de 2024</strong>
-                <p class="p-boletin">Boletín</p>
-                <p>
-                  Participan 658 personas en el 1er Congreso BTED "Educación y deporte": SEP
-                </p>
-                <div class="card-boletin-btn">
-                  <a href="#">
-                    <button type="button" class="btn boton">
-                      Leer
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            
-
+            <!-- las tarjetas las pinta consultaBoletines() con los datos de la API (adminControl) -->
           </div>
 <!-- 
           <div
@@ -596,6 +529,11 @@
       // API de boletines (adminControl)
       const API_BOLETINES = 'https://educacionmediasuperior.sep.gob.mx/adminControl/filtro-boletin.php';
 
+      // texto seguro para usar dentro de un atributo HTML (alt="...")
+      function textoAtributo(texto) {
+        return String(texto || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+      }
+
       $(document).ready(function () {
         $('#desde').datepicker();
         $('#hasta').datepicker();
@@ -685,11 +623,13 @@
 
                   // construir la tarjeta
                   let card = `
-            <div class="col-md-4" style="margin-bottom: 30px;">
+            <div class="col-xs-12 col-sm-6 col-md-4" style="margin-bottom: 30px;">
               <div class="card-boletin">
-                <img class="img-responsive" 
-                     src="${item.cFoto}" 
-                     alt="${item.cTitulo}" />
+                <img class="img-responsive img-diferida"
+                     src="${item.cFoto}"
+                     alt="${textoAtributo(item.cTitulo)}"
+                     loading="lazy" decoding="async" width="640" height="360"
+                     onload="this.classList.add('cargada')" onerror="this.classList.add('cargada')" />
                 <strong>${fechaFormateada}</strong>
                 <p class="p-boletin">Comunicado</p>
                 <p>${item.cTitulo}</p>
