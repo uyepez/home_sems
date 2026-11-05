@@ -593,6 +593,8 @@
     -->
 
     <script>
+      // API de boletines (adminControl)
+      const API_BOLETINES = 'https://educacionmediasuperior.sep.gob.mx/adminControl/filtro-boletin.php';
 
       $(document).ready(function () {
         $('#desde').datepicker();
@@ -654,7 +656,7 @@
         function consultaBoletines() {
           $('#typing-busqueda').show();
           $.ajax({
-            url: 'https://educacionmediasuperior.sep.gob.mx/adminSEMS/filtro-boletin.php',
+            url: API_BOLETINES,
             type: 'POST',
             data: {
               datoBusqueda: datoBusqueda,
