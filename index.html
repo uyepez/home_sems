@@ -1577,13 +1577,15 @@
       -->
       <script>
 
+  // API de boletines (adminControl)
+  const API_BOLETINES = 'https://educacionmediasuperior.sep.gob.mx/adminControl/filtro-boletin.php';
 
   function topBoletines() {
     //console.log("boletines");
     const folio = "1";
 
     $.ajax({
-      url: 'https://educacionmediasuperior.sep.gob.mx/adminSEMS/filtro-boletin.php',
+      url: API_BOLETINES,
       type: 'POST',
       data: {
         datoBusqueda: "folio",

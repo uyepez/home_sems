@@ -102,15 +102,14 @@
         <div class="row">
             
             <div class="col-md-9">
-              <h3 id="boletinTitulo">Anteproyecto de Ley General de <br>Educación Media Superior</h3>
+              <h3 id="boletinTitulo">Cargando boletín…</h3>
               <hr style="background-color: var(--bg-separator); height: 2px;">
               <div style="display: flex; flex-direction: column; gap: 20px;">
-                <strong id="BoletinFecha">Fecha:</strong>
-                <h4 id="boletinDescripcion">Anteproyecto de Ley General de Educación Media <br> Superior</h4>
-                <img style="border-radius: 20px;" id="fotoBoletin" src="assets/boletines/2024/BTED 30 dic.jpg" alt="bted"
+                <strong id="BoletinFecha"></strong>
+                <h4 id="boletinDescripcion"></h4>
+                <img style="border-radius: 20px; display: none;" id="fotoBoletin" alt=""
                   class="img-responsive">
-                <p id="contenido">Herramientas y recusos académicos escenciales para estudiantes y <br>
-                  docentes de educación media superior.</p>
+                <p id="contenido"></p>
               </div>
             
             </div>
@@ -160,10 +159,22 @@
 
 
     <script>
+      // API de boletines (adminControl)
+      const API_BOLETINES = 'https://educacionmediasuperior.sep.gob.mx/adminControl/filtro-boletin.php';
+
       // obtener parametro de la URL
       const params = new URLSearchParams(window.location.search);
       const folio = params.get("folio");
 
+
+      // cuando no hay boletin que mostrar: mensaje en lugar del contenido
+      function sinBoletin(mensaje) {
+        $('#boletinTitulo').text('Boletín no disponible');
+        $('#BoletinFecha').text('');
+        $('#boletinDescripcion').text('');
+        $('#fotoBoletin').hide();
+        $('#contenido').html('<p>' + mensaje + ' <a href="/boletines.html">Ver todos los boletines</a></p>');
+      }
 
       $(document).ready(function () {
         //parametros
@@ -173,16 +184,19 @@
         if (folio) {
           //envio POST
           $.ajax({
-            url: 'https://educacionmediasuperior.sep.gob.mx/adminSEMS/filtro-boletin.php',
+            url: API_BOLETINES,
             type: 'POST',
             data: { datoBusqueda: folio, tipo: "folio", datoComplemento: folio, orden: "ASC" },
             success: function (response) {
 
               const successBoletin = JSON.parse(response);
-              console.log(successBoletin);
-              console.log(successBoletin.status);
 
-              if (successBoletin.status) {
+              if (!successBoletin.status || !successBoletin.items || successBoletin.items.length === 0) {
+                sinBoletin('No encontramos el boletín solicitado.');
+                return;
+              }
+
+              {
                 let item = successBoletin.items[0];
 
                 // Formatear la fecha a "24 de agosto de 2025"
@@ -193,39 +207,39 @@
                 const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
 
                 $('#contenido').html(item.cContenido);
-                $('#fotoBoletin').attr('src', item.cFoto);
+                $('#fotoBoletin').attr({ src: item.cFoto, alt: item.cTitulo }).show();
                 $('#BoletinFecha').text("Fecha: " + fechaFormateada);
                 $('#boletinTitulo').text(item.cTitulo);
-                $('#boletinSubtitulo').text(item.cDescripcion);
+                $('#boletinDescripcion').text(item.cDescripcion);
+                document.title = item.cTitulo + ' | SEMS';
               }
 
             },
             error: function (xhr, status, error) {
-              $('#contenido').html('Error al cargar boletín: ' + error);
+              sinBoletin('No se pudo cargar el boletín, intenta más tarde.');
             }
           });
         } else {
-          $('#contenido').html('No se especificó folio en la URL.');
+          sinBoletin('No se especificó el boletín.');
         }
       });
 
 
       function topBoletines() {
         $.ajax({
-          url: 'https://educacionmediasuperior.sep.gob.mx/adminSEMS/filtro-boletin.php',
+          url: API_BOLETINES,
           type: 'POST',
           data: {
             datoBusqueda: "folio",
             tipo: "top",
-            datoComplemento: folio,
+            // "top" no usa este dato, pero la API exige que venga (sin folio en la URL fallaba)
+            datoComplemento: "1",
             orden: "ASC"
           },
           success: function (response) {
             const successBoletin = JSON.parse(response);
-            console.log(successBoletin.items);
-            console.log(successBoletin.status);
 
-            if (successBoletin && successBoletin.items.length > 0) {
+            if (successBoletin && successBoletin.items && successBoletin.items.length > 0) {
               // Limpiar contenedor antes de dibujar
               $("#carrusel-vertical").html("");
               $("#carrusel-vertical").append('<hr style="background-color: var(--bg-separator); height: 2px;" /> ');
