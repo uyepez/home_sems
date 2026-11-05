@@ -244,12 +244,15 @@ function scrollCarruselCompartimiento1(direction) {
 
 
 
-  // SCRIPT FILTRO BOLETINES
+  // SCRIPT FILTRO BOLETINES (version anterior, con tarjetas fijas en el HTML)
 document.addEventListener("DOMContentLoaded", function () {
   const filtroAnio = document.getElementById("filtro-anio");
   const seccion = document.querySelector("section");
+  if(!filtroAnio || !seccion) return;
+  // boletines.html ya consulta la API (adminControl) y pinta sus tarjetas en #contenedor-boletines;
+  // este filtro borraria ese contenido y fijaria la altura de las tarjetas
+  if(document.getElementById("contenedor-boletines")) return;
   const todasColumnas = Array.from(seccion.querySelectorAll(".col-md-4"));
-  if(!filtroAnio) return;
   filtroAnio.addEventListener("change", function () {
     const anioSeleccionado = filtroAnio.value;
 
