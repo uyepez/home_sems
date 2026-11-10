@@ -80,7 +80,7 @@
         <main class="page">
             <div class="degradado" style="margin-top: 60px"><br/><br/>
                 <div class="card-bachiller">
-                    <div class="row">
+                    <div class="row hero-bachiller">
                         <div class="col-sm-1 col-lg-1"></div>
                         <div class="col-sm-5 col-lg-5">
                             <img src="assets/bachiller/LOGO_BACHILLER_WEB26.png" style="width: 95%;" /><br /><br />
@@ -154,9 +154,41 @@
                         </div>
                         <div class="col-sm-1"></div>
                     </div>
-                </div><br /><br />
-        
-            </div><br />
+                </div><br />
+
+            </div>
+
+            <!--CINTILLO CONVOCATORIA (en escritorio abre el visor; en mobile abre el PDF directo)-->
+            <div class="convocatoria-bachiller">
+                <span class="convocatoria-etiqueta">Convocatoria abierta</span>
+                <div class="convocatoria-card">
+                    <a href="/assets/bachiller/atenco/Convocatorias%20Atenco.pdf" target="_blank" rel="noopener" class="convocatoria-link" data-visor="#visorConvocatoria">
+                        <img src="/assets/bachiller/atenco/banner%20atenco.jpeg" alt="¿Dibujas, escribes, pintas o tomas fotos? Consulta la convocatoria aquí: Atenco y la Montaña" />
+                    </a>
+                </div>
+            </div>
+
+            <!--VISOR PDF CONVOCATORIA-->
+            <div class="modal fade" id="visorConvocatoria" tabindex="-1" role="dialog" aria-labelledby="visorConvocatoriaTitulo">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content visor-pdf">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="visorConvocatoriaTitulo">Convocatoria: Atenco y la Montaña</h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe title="Convocatoria Atenco y la Montaña (PDF)" data-src="/assets/bachiller/atenco/Convocatorias%20Atenco.pdf#view=FitH"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn botonB1" href="/assets/bachiller/atenco/Convocatorias%20Atenco.pdf" target="_blank" rel="noopener">
+                                Abrir en otra ventana <span class="glyphicon glyphicon-new-window" style="margin-left: 6px;"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
             <div class="container">
                 <div class="card-bachiller-esc">
                     <h3>Escríbenos</h3>
@@ -431,5 +463,41 @@
         <script src="https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/script.js"></script>
+        <script>
+            // Visor del PDF de la convocatoria: en escritorio abre un modal con el PDF; en mobile el enlace abre el PDF directo
+            (function () {
+                var enlace = document.querySelector('.convocatoria-link');
+                var modal = document.getElementById('visorConvocatoria');
+                if (!enlace || !modal) return;
+                var iframe = modal.querySelector('iframe');
+                function cerrar() {
+                    modal.classList.remove('in');
+                    modal.style.display = 'none';
+                    document.body.classList.remove('modal-open');
+                    enlace.focus();
+                }
+                function abrir() {
+                    if (!iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
+                    fondo = document.createElement('div');
+                    fondo.className = 'modal-backdrop fade in';
+                    document.body.appendChild(fondo);
+                    document.body.classList.add('modal-open');
+                    modal.style.display = 'block';
+                    modal.classList.add('in');
+                    modal.querySelector('.close').focus();
+                }
+                enlace.addEventListener('click', function (e) {
+                    if (!window.matchMedia('(min-width: 768px)').matches) return;
+                    e.preventDefault();
+                    abrir();
+                });
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal || e.target.closest('[data-dismiss="modal"]')) cerrar();
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && modal.classList.contains('in')) cerrar();
+                });
+            })();
+        </script>
     </body>
 </html>
