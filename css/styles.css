@@ -3492,6 +3492,35 @@ h3{
 }
 
 
+/* Vida académica: tarjetas consecutivas sin huecos (flex en lugar de float) */
+.row-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row-cards::before,
+.row-cards::after {
+  display: none;
+}
+.row-cards > [class*="col-"] {
+  float: none;
+  display: flex;
+}
+.row-cards > [class*="col-"] > .a-card {
+  display: flex;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .row-cards > [class*="col-"] {
+    width: 50%;
+  }
+  .row-cards .card-info {
+    width: 100%;
+    max-width: none;
+    height: 213px;
+    margin: 20px 0 0;
+  }
+}
+
 /* A tu alcance: última fila (Aula abierta + En la escuela nos cuidamos) */
 .card-info.card-fila-final {
   height: 244px;
