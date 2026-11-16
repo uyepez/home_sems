@@ -133,26 +133,32 @@
     </header>
 
     <main style="margin-top: 58px;">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-          <li data-target="#myCarousel" data-slide-to="5"></li>
-          <li data-target="#myCarousel" data-slide-to="6"></li>
-          <li data-target="#myCarousel" data-slide-to="7"></li>
-          <li data-target="#myCarousel" data-slide-to="8"></li>
-          <li data-target="#myCarousel" data-slide-to="9"></li>
-          <li data-target="#myCarousel" data-slide-to="10"></li>
-          <li data-target="#myCarousel" data-slide-to="11"></li>
-          
-        </ol>
+      <!-- Los banners se administran en adminControl (Hero banners); public-js/sems-hero.js los pinta aqui.
+           Si la API no responde en 2.5 s se usan las slides de respaldo del <template id="hero-respaldo">. -->
+      <style>
+        /* reserva el alto del hero mientras llegan los banners (proporcion de las imagenes: 4.6:1 escritorio, 1141x1600 movil) */
+        #myCarousel .carousel-inner:empty { aspect-ratio: 4.6 / 1; background-color: #f2f2f2; }
+        @media (max-width: 499px) { #myCarousel .carousel-inner:empty { aspect-ratio: 1141 / 1600; } }
+      </style>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel"
+           data-sems-hero="https://educacionmediasuperior.sep.gob.mx/adminControl/api/banners.php?sitio=home">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner carousel-vertical-fix"></div>
+              
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner carousel-vertical-fix">
+      <!-- Slides de RESPALDO: dentro de <template> el navegador no las pinta ni descarga sus imagenes.
+           Solo se usan si el admin no responde. Los banners vigentes se editan en adminControl. -->
+      <template id="hero-respaldo">
 
 
 <!-- Slide -1 -->
@@ -355,66 +361,28 @@
               </a>
             </div>
 
-        </div>
-              
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      </template>
 
       <script>
-        // Oculta el slide "activaBanner26" y lo reinserta automáticamente
-        // el 14/09/2026 08:00 hora de Ciudad de México (maneja CST/CDT).
+        // Si en 2.5 s no llegaron los banners del admin, se pintan las slides de respaldo del <template>.
+        // Las fechas de publicacion (antes activaBanner26) se manejan con la vigencia de cada banner en el admin.
         (function () {
-          var TARGET_TIMESTAMP_MS = Date.UTC(2026, 8, 14, 14, 0, 0); // 08:00 CST (UTC-6) = 14:00 UTC
-
-          function activaBanner26() {
-            var banner = document.getElementById('activaBanner26');
-            if (!banner) return;
-
-            var carouselInner = banner.parentNode;
-            var placeholder = document.createComment('activaBanner26-placeholder');
-
-            function mostrarBanner() {
-              if (!banner.parentNode) {
-                carouselInner.insertBefore(banner, placeholder);
-              }
-              if (placeholder.parentNode) {
-                placeholder.parentNode.removeChild(placeholder);
-              }
+          var hero = document.getElementById('myCarousel');
+          var respaldo = document.getElementById('hero-respaldo');
+          if (!hero || !respaldo) return;
+          var listo = false;
+          hero.addEventListener('semsHero:listo', function () { listo = true; });
+          setTimeout(function () {
+            if (listo) return;
+            var inner = hero.querySelector('.carousel-inner');
+            inner.innerHTML = '';
+            inner.appendChild(respaldo.content.cloneNode(true));
+            var total = inner.querySelectorAll('.item').length, li = '';
+            for (var i = 0; i < total; i++) {
+              li += '<li data-target="#myCarousel" data-slide-to="' + i + '"' + (i === 0 ? ' class="active"' : '') + '></li>';
             }
-
-            if (Date.now() >= TARGET_TIMESTAMP_MS) {
-              return; 
-            }
-
-            // Aretira del carrusel para que no se muestre.
-            carouselInner.insertBefore(placeholder, banner);
-            carouselInner.removeChild(banner);
-
-            var msRestantes = TARGET_TIMESTAMP_MS - Date.now();
-            setTimeout(mostrarBanner, msRestantes);
-
-            // Respaldo por si el timeout se retrasa (pestaña inactiva, etc.)
-            var intervalId = setInterval(function () {
-              if (Date.now() >= TARGET_TIMESTAMP_MS) {
-                mostrarBanner();
-                clearInterval(intervalId);
-              }
-            }, 60000);
-          }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', activaBanner26);
-          } else {
-            activaBanner26();
-          }
+            hero.querySelector('.carousel-indicators').innerHTML = li;
+          }, 2500);
         })();
       </script>
 
@@ -1557,6 +1525,9 @@
       })(50);
     </script>
 
+    <!-- Hero banners desde adminControl (lee data-sems-hero de #myCarousel) -->
+    <script src="https://educacionmediasuperior.sep.gob.mx/adminControl/public-js/sems-hero.js"></script>
+
 
       <!-- Script para abrir el modal 
       <script>
@@ -1661,10 +1632,11 @@
 
       $(document).ready(function () {
 
-       $('.open-modal').click(function (e) {
+       // delegado: tambien funciona con los banners modal que pinta sems-hero.js despues de cargar la pagina
+       $(document).on('click', '.open-modal', function (e) {
   e.preventDefault();
 
-  var imgs = $(this).data('img').split(',');
+  var imgs = String($(this).data('img')).split(',');
   var html = '';
 
   imgs.forEach(function (src, index) {
