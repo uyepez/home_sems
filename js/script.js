@@ -1162,9 +1162,22 @@ document.addEventListener('DOMContentLoaded', function () {
    para mostrar el reverso; un nuevo tap la regresa a su posición original.
    El botón "Leer" del reverso sigue funcionando normalmente. */
 (function () {
-    var esTactil = window.matchMedia && window.matchMedia('(hover: none)');
+    var raiz = document.documentElement;
+    // Detección inicial (algunos Android reportan hover aunque sean táctiles)
+    if (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+        raiz.classList.add('tactil');
+    }
+    // Detección por el toque real: dedo → táctil; mouse → escritorio
+    document.addEventListener('touchstart', function () {
+        raiz.classList.add('tactil');
+    }, { passive: true, capture: true });
+    document.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'touch' || e.pointerType === 'pen') raiz.classList.add('tactil');
+        else if (e.pointerType === 'mouse') raiz.classList.remove('tactil');
+    }, true);
+
     document.addEventListener('click', function (e) {
-        if (!esTactil || !esTactil.matches) return;
+        if (!raiz.classList.contains('tactil')) return;
         var tarjeta = e.target.closest ? e.target.closest('.flip-card') : null;
         if (!tarjeta) return;
         var volteada = tarjeta.classList.contains('is-flipped');
