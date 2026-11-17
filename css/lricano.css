@@ -1079,8 +1079,34 @@ main.page > .container > img { max-width: 100%; height: auto; }
   transform-style: preserve-3d; 
 }
 
-.flip-card:hover .flip-card-inner {
+/* El giro por hover solo aplica en dispositivos con puntero (escritorio);
+   en pantallas táctiles el giro se controla con tap (clase .is-flipped, ver js/script.js) */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-card.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
+}
+
+/* Con la tarjeta girada, la cara frontal oculta no debe capturar el toque
+   (así el botón "Leer" del reverso responde) */
+.flip-card.is-flipped .flip-card-front {
+  pointer-events: none;
+}
+
+.flip-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-card-inner {
+  -webkit-transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back, .flip-card-back2 {
+  -webkit-backface-visibility: hidden;
 }
 
 .flip-card-front, .flip-card-back {
@@ -3322,6 +3348,29 @@ color: var(--text-secondary);
     .hero-bachiller .card { height: auto; min-height: 0; margin-top: 0; padding-bottom: 22px; }
     .hero-bachiller .card .posicion2 { display: none; }
     .hero-bachiller .img-carrusel { width: 260px; max-width: 100%; }
+}
+
+/* ===== Home Bachiller: tarjeta "Número más reciente" compacta (mobile) ===== */
+@media (max-width: 768px) {
+    .hero-bachiller .card {
+        height: auto;
+        min-height: 0;
+        margin-top: 0;
+        padding: 14px 16px 16px;
+        justify-content: flex-start;
+    }
+    .hero-bachiller .card p { padding-top: 0; }
+    .hero-bachiller .card .linea-separacion {
+        width: 85%;
+        max-width: 270px;
+        margin: 8px auto 0;
+    }
+    .hero-bachiller .card .posicion1 {
+        width: 100%;
+        padding: 12px 0 0 !important;
+    }
+    .hero-bachiller .card .posicion1 .col-sm-6 { margin-bottom: 0; }
+    .hero-bachiller .card .posicion2 { display: none !important; }
 }
 
 /* ===== Cintillo de convocatoria ===== */
