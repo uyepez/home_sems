@@ -1156,3 +1156,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+/* ===== Tarjetas del índice (Bachiller): giro con tap en pantallas táctiles =====
+   En escritorio giran con hover (CSS). En táctil, el primer tap gira la tarjeta
+   para mostrar el reverso; un nuevo tap la regresa a su posición original.
+   El botón "Leer" del reverso sigue funcionando normalmente. */
+(function () {
+    var esTactil = window.matchMedia && window.matchMedia('(hover: none)');
+    document.addEventListener('click', function (e) {
+        if (!esTactil || !esTactil.matches) return;
+        var tarjeta = e.target.closest ? e.target.closest('.flip-card') : null;
+        if (!tarjeta) return;
+        var volteada = tarjeta.classList.contains('is-flipped');
+        // En el reverso, el botón/enlace navega con normalidad
+        if (volteada && e.target.closest('.flip-card-back, .flip-card-back2') &&
+            e.target.closest('button, a')) return;
+        e.preventDefault();
+        // Solo una tarjeta volteada a la vez
+        document.querySelectorAll('.flip-card.is-flipped').forEach(function (otra) {
+            if (otra !== tarjeta) otra.classList.remove('is-flipped');
+        });
+        tarjeta.classList.toggle('is-flipped');
+    });
+})();
