@@ -1082,7 +1082,7 @@ main.page > .container > img { max-width: 100%; height: auto; }
 /* El giro por hover solo aplica en dispositivos con puntero (escritorio);
    en pantallas táctiles el giro se controla con tap (clase .is-flipped, ver js/script.js) */
 @media (hover: hover) {
-  .flip-card:hover .flip-card-inner {
+  html:not(.tactil) .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
   }
 }
