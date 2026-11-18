@@ -18,6 +18,57 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/lricano.css" />
+    <style>
+      /* Botones de 1.ª y 2.ª edición en ventanas emergentes del Currículum Fundamental */
+      .titulo-botones-mc {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 481px;
+        max-width: 100%;
+        margin: 0 auto 12px;
+        color: #4d4d4d;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .titulo-botones-mc::before,
+      .titulo-botones-mc::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background-color: #BC955C;
+      }
+      .ediciones-mc {
+        display: flex;
+        gap: 8px;
+        width: 481px;
+        max-width: 100%;
+        margin: 0 auto 10px;
+      }
+      .ediciones-mc .datos-modal-mc {
+        flex: 1;
+        min-width: 0;
+        width: auto !important;
+        margin: 0;
+      }
+      .ediciones-mc ~ .datos-modal-mc {
+        background-color: #691C32;
+      }
+      .ediciones-mc ~ .datos-modal-mc:hover {
+        background-color: white;
+        color: #691C32;
+        border-color: #691C32;
+      }
+      @media (max-width: 768px) {
+        .titulo-botones-mc,
+        .ediciones-mc {
+          width: 240px;
+        }
+        .ediciones-mc {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
 
 <body>
@@ -625,10 +676,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                         </div><br/>
-                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_PENSAMIENTO_MATEMATICO.pdf" target="_blank">
-                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
-                            <p>Ver programa</p>
-                        </a>
+                        <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                        <div class="ediciones-mc">
+                            <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_PENSAMIENTO_MATEMATICO.pdf" target="_blank">
+                                <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                                <p>Ver 1.ª edición</p>
+                            </a>
+                            <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_PENSAMIENTO MATEMATICO.pdf" target="_blank">
+                                <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                                <p>Ver 2.ª edición</p>
+                            </a>
+                        </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA PENS. MATEMATICO.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
                             <p>Ver infografía</p>
@@ -646,10 +704,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                         </div><br/>
-                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_PENSAMIENTO_FILOSOFICO (2).pdf" target="_blank">
-                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
-                            <p>Ver programa</p>
-                        </a>
+                        <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                        <div class="ediciones-mc">
+                            <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_PENSAMIENTO_FILOSOFICO (2).pdf" target="_blank">
+                                <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                                <p>Ver 1.ª edición</p>
+                            </a>
+                            <a class="datos-modal-mc" href="assets/modeloeducativo2025/20261117_MCCEMS_2da ed_PENSAMIENTO FILOSOFICO.pdf" target="_blank">
+                                <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                                <p>Ver 2.ª edición</p>
+                            </a>
+                        </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA FILOSOFIA Y HUM.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
                             <p>Ver infografía</p>
@@ -667,10 +732,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                     </div><br/>
-                    <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_INGLES.pdf" target="_blank">
-                        <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
-                            <p>Ver programa</p>
-                    </a>
+                    <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                    <div class="ediciones-mc">
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_INGLES.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 1.ª edición</p>
+                        </a>
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_INGLES.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 2.ª edición</p>
+                        </a>
+                    </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA INGLES.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
                             <p>Ver infografía</p>
@@ -688,10 +760,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                     </div><br/>
-                    <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CULTURA DIGITAL_09.pdf" target="_blank">
-                        <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
-                            <p>Ver programa</p>
-                    </a>
+                    <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                    <div class="ediciones-mc">
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CULTURA DIGITAL_09.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 1.ª edición</p>
+                        </a>
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_CULTURA DIGITAL.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 2.ª edición</p>
+                        </a>
+                    </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA CULTURA DIGITAL.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
                             <p>Ver infografía</p>
@@ -709,10 +788,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                     </div><br/>
-                    <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_LENGUA_Y_COMUNICACION.pdf" target="_blank">
-                        <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
-                            <p>Ver programa</p>
-                    </a>
+                    <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                    <div class="ediciones-mc">
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_LENGUA_Y_COMUNICACION.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 1.ª edición</p>
+                        </a>
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_LENGUA Y COMUNICACION.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 2.ª edición</p>
+                        </a>
+                    </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA LENGUA Y COMUN.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
                             <p>Ver infografía</p>
@@ -752,10 +838,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                     </div><br/>
-                    <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CIENCIAS_SOCIALES_2da.pdf" target="_blank">
-                        <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
-                            <p>Ver programa</p>
-                    </a>
+                    <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                    <div class="ediciones-mc">
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CIENCIAS_SOCIALES_2da.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 1.ª edición</p>
+                        </a>
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_CIENCIAS SOCIALES.pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 2.ª edición</p>
+                        </a>
+                    </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA C. SOCIALES.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
                             <p>Ver infografía</p>
@@ -773,10 +866,17 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                     </div><br/>
-                    <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CONCIENCIA_HISTORICA .pdf" target="_blank">
-                        <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png"  />
-                            <p>Ver programa</p>
-                    </a>
+                    <div class="titulo-botones-mc"><span>Consulta el programa</span></div>
+                    <div class="ediciones-mc">
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_CONCIENCIA_HISTORICA .pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 1.ª edición</p>
+                        </a>
+                        <a class="datos-modal-mc" href="assets/modeloeducativo2025/MCC_2da ed_CONCIENCIA HISTORICA .pdf" target="_blank">
+                            <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
+                            <p>Ver 2.ª edición</p>
+                        </a>
+                    </div>
                         <a class="datos-modal-mc" href="assets/modeloeducativo2025/INFOGRAFIA CON. HISTORICA.pdf" target="_blank">
                             <img class="icon_modal_mc" src="assets/modeloeducativo2025/r48.png" />
                             <p>Ver infografía</p>
