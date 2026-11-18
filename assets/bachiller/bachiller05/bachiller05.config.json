@@ -48,6 +48,36 @@
       "descripcion": "El avistamiento de aves en una comunidad indígena de Morelos: saberes locales, especies migratorias y cómo protegerlas.",
       "corregir": [{ "de": "            <p class=\"textos\" style=\"white-space: pre-wrap; tab-size: 4; text-align: right;\">M. en E. A. Aída Heras Medina, BEDR 94, DGETAyCM<br />Dr. Fernando Urbina Torres, CIB, UAEM</p>\n", "a": "" }]
     },
+    "25": {
+      "html": "NingunaFlorMuereSola.html",
+      "seccion": "Escaparate",
+      "titulo": "Ninguna flor muere sola",
+      "autor": "Elvira Salinas",
+      "descripcion": "Tras la muerte de su madre, a Jacinto lo persiguen los fantasmas de las flores muertas hasta que aprende a amarlos."
+    },
+    "26": {
+      "html": "BitacorasEmocionales.html",
+      "seccion": "Escaparate",
+      "titulo": "Bitácoras emocionales",
+      "autor": "José Miguel Vassallo Vázquez",
+      "descripcion": "Una experiencia en el CETis 125: la escritura reflexiva como herramienta para cultivar la voz propia en el bachillerato."
+    },
+    "27": {
+      "html": "PoesiaparaConstruirelMundo.html",
+      "seccion": "Poesía",
+      "titulo": "Poesía para construir el mundo",
+      "autor": "Jahzeel Acevedo Aguilar",
+      "descripcion": "Un poeta y docente reflexiona sobre la voz propia, la metáfora y la poesía como forma de construir la realidad.",
+      "corregir": [
+        { "de": "            <p class=\"textos\">Por Jahzeel Acevedo Aguilar</p>\n", "a": "" },
+        { "de": "<p class=\"textos\"><em><span style=\"font-size: 40px; font-weight: bold; color: #9f2241\">E</span>sta colaboración", "a": "<p class=\"textos\"><strong><em>Esta colaboración" },
+        { "de": "en la Ciudad de México.</em></p>", "a": "en la Ciudad de México.</em></strong></p>" },
+        { "de": "<p class=\"textos\">Debemos entender", "a": "<p class=\"textos\"><span style=\"font-size: 40px; font-weight: bold; color: #9f2241\">D</span>ebemos entender" },
+        { "de": "            <p class=\"textos\" style=\"color: #9f2241; font-size: 20px; margin-top: 25px;\"><strong>Semblanza</strong></p>\n            <p class=\"textos\"><strong>Jahzeel Acevedo</strong>", "a": "            <div class=\"semblanza\">\n            <p class=\"textos\"><strong>Jahzeel Acevedo</strong>" },
+        { "de": "en el subsistema DGETI.</p>", "a": "en el subsistema DGETI.</p>\n            </div>" },
+        {"de":"en la Ciudad de México.</em></strong></p>\n","a":"en la Ciudad de México.</em></strong></p>\n            <p class=\"textos\" style=\"color: #9f2241; font-size: 20px; margin-top: 25px;\"><strong>Poesía</strong></p>\n"}
+      ]
+    },
     "vinagrillo": {
       "head": null,
       "insertar": [
