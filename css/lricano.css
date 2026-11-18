@@ -1233,6 +1233,17 @@ main.page > .container > img { max-width: 100%; height: auto; }
     cursor: pointer;
 }
 
+/* Portadas horizontales (940x788, p. ej. Bachiller04): se ajustan a la misma
+   caja que las portadas verticales (1545x1999 a 300px de alto = 232x300) */
+.img-libro-bachiller.img-libro-bachiller-horizontal {
+    width: 232px;
+    height: 300px;
+    padding: 19px 0;
+    box-sizing: border-box;
+    object-fit: cover;
+    object-position: center;
+}
+
 .img-libro-bachiller-container:hover .img-libro-bachiller {
     transform: scale(1.08);
 }
