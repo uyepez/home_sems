@@ -78,6 +78,21 @@
         {"de":"en la Ciudad de México.</em></strong></p>\n","a":"en la Ciudad de México.</em></strong></p>\n            <p class=\"textos\" style=\"color: #9f2241; font-size: 20px; margin-top: 25px;\"><strong>Poesía</strong></p>\n"}
       ]
     },
+    "28": {
+      "html": "CafealaNaranja.html",
+      "seccion": "Aula abierta",
+      "titulo": "Café a la Naranja: Mujeres escritoras. Literatura, género y comunidad en el bachillerato",
+      "autor": "Georgina Érica Sánchez Camacho, Claudia del Consuelo López Martínez y José Francisco Pinto Castillo",
+      "descripcion": "Dentro del marco del Día Naranja de cada mes, docentes del Colegio de Bachilleres de Chiapas, organizan encuentros entre estudiantes y escritoras contemporáneas para fomentar la cultura de paz, el reconocimiento de la diversidad cultural y lingüística, y el diálogo con nuevos referentes femeninos locales.",
+      "corregir": [
+        {"de":"<strong><em><span style=\"font-size: 40px; font-weight: bold; color: #9f2241\">E</span>ste escrito","a":"<strong><em>Este escrito"},
+        {"de":"<p class=\"textos\">Dentro de nuestra experiencia","a":"<p class=\"textos\"><span style=\"font-size: 40px; font-weight: bold; color: #9f2241\">D</span>entro de nuestra experiencia"},
+        {"de":"la firma intención","a":"la firme intención"},
+        {"de":"<strong>Georgina Érica Sánchez Camacho es</strong>","a":"<strong>Georgina Érica Sánchez Camacho</strong> es"},
+        {"de":"            <p class=\"textos\"><strong>Georgina Érica","a":"            <div class=\"semblanza\">\n            <p class=\"textos\"><strong>Georgina Érica"},
+        {"de":"ferias estatales y nacionales.</p>","a":"ferias estatales y nacionales.</p>\n            </div>"}
+      ]
+    },
     "vinagrillo": {
       "head": null,
       "insertar": [
