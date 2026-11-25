@@ -94,7 +94,6 @@
 
       .card-fcd img {
         display: block;
-        width: 100%;
         height: auto;
       }
 
@@ -123,15 +122,12 @@
 
       .infografia-16ad {
         width: 100%;
-        max-height: 500px;
-        aspect-ratio: 612 / 800;
-        border: 0;
+        height: auto;
         border-radius: 12px;
         box-shadow: rgba(0, 0, 0, 0.35) 2px 4px 6px;
-        background: #fff;
       }
 
-      /* Carrusel: tarjetas grandes en escritorio (3 visibles) y tableta (2 visibles) */
+      /* Carrusel: tarjetas grandes en escritorio (4 visibles) y tableta (2 visibles) */
       #carrusel-horizontal-fdc {
         scroll-snap-type: x mandatory;
       }
@@ -150,7 +146,7 @@
 
       @media (min-width: 992px) {
         #carrusel-horizontal-fdc .card-fcd {
-          flex: 0 0 calc((100% - 40px) / 3);
+          flex: 0 0 calc((100% - 60px) / 4);
         }
       }
 
@@ -172,6 +168,17 @@
         .boton-fcd p {
           text-align: center;
           width: 100%;
+        }
+
+        .card-fcd.infografia-wrap {
+          width: 100% !important;
+        }
+
+        .infografia-16ad {
+          width: auto;
+          max-width: 100%;
+          max-height: 400px;
+          margin: 0 auto 20px;
         }
       }
     </style>
@@ -298,12 +305,17 @@
               <div class="row">
                 <!-- Col: Infografía -->
                 <div class="col-xs-12 col-md-5 text-right">
-                  <iframe
-                    class="infografia-16ad"
-                    src="assets/campana-16AD/Tu uniforme, tu eleccion_16AD-comprimido.pdf#toolbar=0&navpanes=0&view=Fit"
-                    title="Infografía Tu uniforme, tu elección"
-                    loading="lazy"
-                  ></iframe>
+                  <div
+                    class="card-fcd infografia-wrap"
+                    data-img="assets/campana-16AD/Infografia_Tu_uniforme_tu_eleccion.jpg"
+                    data-title="Infografia Tu uniforme tu eleccion"
+                  >
+                    <img
+                      src="assets/campana-16AD/Infografia_Tu_uniforme_tu_eleccion.jpg"
+                      alt="Infografía ¡Tu uniforme, tu elección! Uniforme escolar neutro en las adolescencias del Bachillerato Nacional"
+                      class="img-responsive right-block infografia-16ad"
+                    />
+                  </div>
                 </div>
 
                 <!-- Col: Texto -->
