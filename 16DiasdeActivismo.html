@@ -130,6 +130,35 @@
         background: #fff;
       }
 
+      /* Carrusel: tarjetas grandes en escritorio (3 visibles) y tableta (2 visibles) */
+      #carrusel-horizontal-fdc {
+        scroll-snap-type: x mandatory;
+      }
+
+      #carrusel-horizontal-fdc .card-fcd {
+        scroll-snap-align: start;
+      }
+
+      #carrusel-horizontal-fdc .card-fcd img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+      @media (min-width: 992px) {
+        #carrusel-horizontal-fdc .card-fcd {
+          flex: 0 0 calc((100% - 40px) / 3);
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+        #carrusel-horizontal-fdc .card-fcd {
+          flex: 0 0 calc((100% - 20px) / 2);
+        }
+      }
+
       @media (max-width: 767px) {
         .fdc__h2 {
           font-size: 15px;
