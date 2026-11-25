@@ -120,6 +120,36 @@
         color: #9d48af;
       }
 
+      /* Línea dorada más larga y texto centrado verticalmente (mismo espacio arriba y abajo) */
+      /* Sin sombra en las imágenes del carrusel */
+      #carrusel-horizontal-fdc .card-fcd img {
+        box-shadow: none;
+      }
+
+      @media (min-width: 992px) {
+        /* Imagen centrada verticalmente respecto a la línea dorada */
+        #intro-16ad .row {
+          display: flex;
+          align-items: center;
+        }
+
+        #intro-16ad .intro-with-divider {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-top: 45px;
+          padding-bottom: 45px;
+        }
+
+        #intro-16ad .intro-with-divider p:first-child {
+          margin-top: 0;
+        }
+
+        #intro-16ad .intro-with-divider p:last-child {
+          margin-bottom: 0;
+        }
+      }
+
       .infografia-16ad {
         width: 100%;
         height: auto;
@@ -520,6 +550,44 @@
 
           $("#modalImagenFdc").modal("show");
         });
+
+        // Movimiento automático del carrusel
+        var carrusel = document.getElementById("carrusel-horizontal-fdc");
+        var wrapper = carrusel.closest(".carousel-wrapper");
+        var INTERVALO_MS = 3000;
+        var timer = null;
+
+        function avanzarCarrusel() {
+          var alFinal =
+            carrusel.scrollLeft + carrusel.clientWidth >= carrusel.scrollWidth - 5;
+          if (alFinal) {
+            carrusel.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            scrollCarruselFdc(1);
+          }
+        }
+
+        function iniciarAuto() {
+          detenerAuto();
+          timer = setInterval(avanzarCarrusel, INTERVALO_MS);
+        }
+
+        function detenerAuto() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        // Pausa al pasar el mouse, al tocar o con el modal abierto
+        wrapper.addEventListener("mouseenter", detenerAuto);
+        wrapper.addEventListener("mouseleave", iniciarAuto);
+        carrusel.addEventListener("touchstart", detenerAuto, { passive: true });
+        carrusel.addEventListener("touchend", iniciarAuto, { passive: true });
+        $("#modalImagenFdc").on("show.bs.modal", detenerAuto);
+        $("#modalImagenFdc").on("hidden.bs.modal", iniciarAuto);
+
+        iniciarAuto();
       });
     </script>
   </body>
