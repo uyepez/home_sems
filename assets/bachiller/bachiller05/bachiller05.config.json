@@ -43,10 +43,14 @@
       "html": "PajareandoenSanAndresdelaCal.html",
       "head": "HEADS -24.png",
       "seccion": "Escaparate",
-      "titulo": "Pajareando en San Andrés de la Cal",
-      "autor": "Aída Heras Medina y Fernando Urbina Torres",
+      "titulo": "Pajareando en San Andrés, una afición para reconectar con la naturaleza",
+      "autor": "Fernando Urbina Torres y Aída Heras Medina",
       "descripcion": "El avistamiento de aves en una comunidad indígena de Morelos: saberes locales, especies migratorias y cómo protegerlas.",
-      "corregir": [{ "de": "            <p class=\"textos\" style=\"white-space: pre-wrap; tab-size: 4; text-align: right;\">M. en E. A. Aída Heras Medina, BEDR 94, DGETAyCM<br />Dr. Fernando Urbina Torres, CIB, UAEM</p>\n", "a": "" }]
+      "corregir": [
+        {"de":"            <p class=\"textos\" style=\"white-space: pre-wrap; tab-size: 4; text-align: right;\">Dr. Fernando Urbina Torres, CIB, UAEM<br />M. en E. A. Aída Heras Medina, BEDR  94, DGETAyCM</p>\n","a":""},
+        {"de":"            <p class=\"textos\"><strong>Dr. Fernando Urbina Torres</strong>","a":"            <div class=\"semblanza\">\n            <p class=\"textos\"><strong>Dr. Fernando Urbina Torres</strong>"},
+        {"de":"Tecnología alternativa y Desarrollo comunitario.</p>","a":"Tecnología alternativa y Desarrollo comunitario.</p>\n            </div>"}
+      ]
     },
     "25": {
       "html": "NingunaFlorMuereSola.html",
